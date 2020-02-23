@@ -1,0 +1,93 @@
+<!-- Untuk membuat tabel dalam html ada beberapa tag yang digunakan, diantaranya:
+
+    tag <table> untuk mendefinisikan sebuah tabel.
+    tag <tr> untuk mendefinisikan baris baru.
+    tag <th> untuk mendefinisikan kepala tabel (table heading).
+    tag <td> untuk mendefiniskan data pada tabel (table data).
+    tag <caption> untuk mendefiniskan caption/keterangan tabel. 
+    	
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tugas 2 : Tabel</title>
+</head>
+<body bgcolor="lavender">
+	
+	<table width="500px" border="1" style="border-collapse: collapse; background-color: white; ">
+		<caption>Kartu Rencana Studi Semester Genap 2019/2020</caption>
+		<thead>
+			<tr>
+				<th rowspan="2">No</th>
+				<th rowspan="2">Kelas</th>
+				<th colspan="2">Matakuliah</th>
+				<th rowspan="2">SKS</th>
+			</tr>
+			<tr>
+				<th>Kode</th>
+				<th>Nama</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>SI4A</td>
+				<td>SI402</td>
+				<td>RISET OPERASI</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>SI4A</td>
+				<td>SI403</td>
+				<td>SISTEM MANAJEMEN BASIS DATA</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>SI4B</td>
+				<td>SI404</td>
+				<td>PEMROGRAMAN BERBASIS WEB</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>SI4B</td>
+				<td>SI405</td>
+				<td>KEAMANAN INFORMASI</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>SI4B</td>
+				<td>SI406</td>
+				<td>ENTERPRISE RESOURCE PLANNING</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>SI6B</td>
+				<td>SI601</td>
+				<td>BISNIS CERDAS</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>SI6A</td>
+				<td>SI602</td>
+				<td>DATA MINING</td>
+				<td>3</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td align="right" colspan="4">Jumlah Kredit</td>
+				<td>23</td>
+			</tr>
+		</tfoot>
+	</table>
+
+</body>
+</html>
