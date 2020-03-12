@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sistem Pakar TBC</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://yusufsugiono.github.io/assets/vendor/fontawesome/css/all.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<script type="text/javascript">
+  		$(document).ready(function(){
+  			$('#pertanyaan1').hide();
+  			$('#pertanyaan2').hide();
+  			$('#pertanyaan3').hide();
+  			$('#pertanyaan4').hide();
+  			$('#pertanyaan5').hide();
+  			$('#pertanyaan6').hide();
+  			$('#pertanyaan7').hide();
+  			$('#hasil').hide();
+  			$('#hasil2').hide();
+  			$('#ulang').hide();
+ 
+  			$('#nama').keyup(function(){
+  				var text = $('#nama').val();
+  				$('h1').text('Halo, '+text+"!");
+  			});
+
+  			$('#form1').submit(function(){
+  				var text = $('#nama').val();
+  				if(text==""){
+  					alert("Nama harus diisi!");
+  					$('#nama').focus();
+  				}else{
+  					$('#form1').fadeOut(500);
+  					$('#pertanyaan1').delay(500).fadeIn(500);
+
+  				}
+  				$('#inialert').hide();
+  				event.preventDefault();
+  			});
+
+  			$('#klik1').click(function(){
+  				if ($('input[name="keringatmalam"]:checked').length == 0){
+  					alert("Pilih salah satu!");
+  				}else{
+  					$('#pertanyaan1').fadeOut(500);
+  					$('#pertanyaan2').delay(500).fadeIn(500);
+  				}
+  				
+  				event.preventDefault();
+  			});
+
+  			$('#klik2').click(function(){
+  				if ($('input[name="batukberdahak"]:checked').length == 0){
+  					alert("Pilih salah satu!");
+  				}else{
+	  				$('#pertanyaan2').fadeOut(500);
+	  				$('#pertanyaan3').delay(500).fadeIn(500);
+  				}
+  				event.preventDefault();
+  			});
+
+  			$('#klik3').click(function(){
+  				if ($('input[name="batukdarah"]:checked').length == 0){
+  					alert("Pilih salah satu!");
+  				}else{
+	  				$('#pertanyaan3').fadeOut(500);
+	  				$('#pertanyaan4').delay(500).fadeIn(500);
+  				}
+  				event.preventDefault();
+  			});
+
+  			$('#klik4').click(function(){
+  				if ($('input[name="demambulanan"]:checked').length == 0){
+  					alert("Pilih salah satu!");
+  				}else{
+	  				$('#pertanyaan4').fadeOut(500);
+	  				$('#pertanyaan5').delay(500).fadeIn(500);
+  				}
+  				event.preventDefault();
+  			});
+
+  			$('#klik5').click(function(){
+  				if ($('input[name="nafsumakan"]:checked').length == 0){
+  					alert("Pilih salah satu!");
+  				}else{
+	  				$('#pertanyaan5').fadeOut(500);
+	  				$('#pertanyaan6').delay(500).fadeIn(500);
+  				}
+  				event.preventDefault();
+  			});
+
+  			$('#klik6').click(function(){
+  				if ($('input[name="bbturun"]:checked').length == 0){
+  					alert("Pilih salah satu!");
+  				}else{
+	  				$('#pertanyaan6').fadeOut(500);
+	  				$('#pertanyaan7').delay(500).fadeIn(500);
+  				}
+  				event.preventDefault();
+  			});
+
+  			$('#klik7').click(function(){
+  				if ($('input[name="sesaknafas"]:checked').length == 0){
+  					alert("Pilih salah satu!");
+  				}else{
+  					$('#pertanyaan7').fadeOut(500);
+  					var jwb1 = parseInt($("input[name='keringatmalam']:checked").val());
+  					var jwb2 = parseInt($("input[name='batukberdahak']:checked").val());
+  					var jwb3 = parseInt($("input[name='batukdarah']:checked").val());
+  					var jwb4 = parseInt($("input[name='demambulanan']:checked").val());
+  					var jwb5 = parseInt($("input[name='nafsumakan']:checked").val());
+  					var jwb6 = parseInt($("input[name='bbturun']:checked").val());
+  					var jwb7 = parseInt($("input[name='sesaknafas']:checked").val());
+  					var skor = ((jwb1+jwb2+jwb3+jwb4+jwb5+jwb6+jwb7)/22*100).toFixed(2);
+  					if (skor==0) {
+  						$('#hasil').attr({
+  							'class':'alert alert-success',
+  						});
+  						$('#hasil').html("Anda sehat-sehat saja. Sistem tidak mendeteksi bahwa Anda mengidap TBC");
+  						$('#hasil2').attr({
+  							'class':'alert alert-success',
+  						});
+  						$('#hasil2').text("Tetap jaga kesehatan Anda dan jangan lupa bahagia");
+  					}else if(skor<=30) {
+  						$('#hasil').attr({
+  							'class':'alert alert-info',
+  						});
+  						$('#hasil').html("Anda memiliki KEMUNGKINAN KECIL mengidap penyakit TBC yaitu sebesar <strong>"+skor+"%</strong>");
+  						$('#hasil2').attr({
+  							'class':'alert alert-warning',
+  						});
+  						$('#hasil2').text("Perlu diperhatikan Anda harus konsultasi kepada dokter Anda untuk pemeriksaan lebih lanjut.");
+  					}else if(skor<=60) {
+  						$('#hasil').attr({
+  							'class':'alert alert-warning',
+  						});
+  						$('#hasil').html("Anda memiliki KEMUNGKINAN mengidap penyakit TBC yaitu sebesar <strong>"+skor+"%</strong>");
+  						$('#hasil2').attr({
+  							'class':'alert alert-warning',
+  						});
+  						$('#hasil2').text("Perlu diperhatikan Anda harus konsultasi kepada dokter Anda untuk pemeriksaan lebih lanjut.");
+  					}else if(skor<=90) {
+  						$('#hasil').attr({
+  							'class':'alert alert-warning',
+  						});
+  						$('#hasil').html("Anda BERPOTENSI mengidap penyakit TBC yaitu sebesar <strong>"+skor+"%</strong>");
+  						$('#hasil2').attr({
+  							'class':'alert alert-warning',
+  						});
+  						$('#hasil2').text("Segera konsultasikan kepada dokter Anda untuk pemeriksaan lebih lanjut.");
+  					}else{
+  						$('#hasil').attr({
+  							'class':'alert alert-danger',
+  						});
+  						$('#hasil').html("Sistem mengkhawatirkan kesehatan Anda. Sistem mendeteksi Anda memiliki KEMUNGKINAN BESAR sedang mengidap penyakit TBC yaitu sebesar <strong>"+skor+"%</strong>");
+  						$('#hasil2').attr({
+  							'class':'alert alert-danger',
+  						});
+  						$('#hasil2').text("Segera periksakan ke dokter untuk penanganan lebih lanjut");
+  					}
+  					$('#hasil').delay(500).fadeIn(500);
+  					$('#hasil2').delay(500).fadeIn(500);
+  					$('#ulang').delay(500).fadeIn(500);
+  				}
+  				event.preventDefault();
+  			});
+
+  			$('#ulang').click(function(){
+  				location.reload();
+  			})
+
+  		});
+  	</script>
+</head>
+<body class="container">
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Sistem Pakar TBC (Yusuf Sugiono - 180441100060)</a>
+    </div>
+  </div>
+</nav>
+ <div id="inialert" class="alert alert-info alert-dismissible" role="alert">
+                            Aplikasi ini akan mendiagnosa secara dini apakah terdapat potensi TBC pada diri Anda berdasarkan gejala yang ditimbulkan. <b>Segera input nama Anda dan klik tombol mulai!</b>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+<h1>Halo</h1>
+<form name="form1" id="form1">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<input id="nama" type="text" placeholder="Ketik nama anda..." class="form-control">
+				<br>
+				<button id="tombol1" type="submit" class="btn btn-primary">Mulai</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<form id="form2" name="form2">
+	<div id="pertanyaan1">
+		<p>Apakah anda sering berkeringat pada malam hari?</p>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="keringatmalam" value="1">
+	  		<label class="form-check-label" for="keringatmalam">
+	    		Ya
+	  		</label>
+		</div>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="keringatmalam" value="0">
+	  		<label class="form-check-label" for="keringatmalam">
+	    		Tidak
+	  		</label>
+		</div>
+		<button id="klik1" class="btn btn-primary">Lanjut</button>
+	</div>
+
+	<div id="pertanyaan2">
+		<p>Apakah anda mengalami batuk berdahak?</p>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="batukberdahak" value="1">
+	  		<label class="form-check-label" for="batukberdahak">
+	    		Ya
+	  		</label>
+		</div>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="batukberdahak" value="0">
+	  		<label class="form-check-label" for="batukberdahak">
+	    		Tidak
+	  		</label>
+		</div>
+		<button id="klik2" class="btn btn-primary">Lanjut</button>
+	</div>
+
+	<div id="pertanyaan3">
+		<p>Apakah anda batuk anda disertai dahak yang bercampur bercak darah?</p>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="batukdarah" value="5">
+	  		<label class="form-check-label" for="batukdarah">
+	    		Ya
+	  		</label>
+		</div>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="batukdarah" value="0">
+	  		<label class="form-check-label" for="batukdarah">
+	    		Tidak
+	  		</label>
+		</div>
+		<button id="klik3" class="btn btn-primary">Lanjut</button>
+	</div>
+
+	<div id="pertanyaan4">
+		<p>Apakah anda mengalami demam selama sebulan atau lebih?</p>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="demambulanan" value="5">
+	  		<label class="form-check-label" for="demambulanan">
+	    		Ya
+	  		</label>
+		</div>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="demambulanan" value="0">
+	  		<label class="form-check-label" for="demambulanan">
+	    		Tidak
+	  		</label>
+		</div>
+		<button id="klik4" class="btn btn-primary">Lanjut</button>
+	</div>
+
+	<div id="pertanyaan5">
+		<p>Apakah nafsu makan anda menurun?</p>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="nafsumakan" value="3">
+	  		<label class="form-check-label" for="nafsumakan">
+	    		Ya
+	  		</label>
+		</div>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="nafsumakan" value="0">
+	  		<label class="form-check-label" for="nafsumakan">
+	    		Tidak
+	  		</label>
+		</div>
+		<button id="klik5" class="btn btn-primary">Lanjut</button>
+	</div>
+
+	<div id="pertanyaan6">
+		<p>Apakah berat badan anda menurun?</p>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="bbturun" value="3">
+	  		<label class="form-check-label" for="bbturun">
+	    		Ya
+	  		</label>
+		</div>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="bbturun" value="0">
+	  		<label class="form-check-label" for="bbturun">
+	  			Tidak
+	  		</label>
+		</div>
+		<button id="klik6" class="btn btn-primary">Lanjut</button>
+	</div>
+
+	<div id="pertanyaan7">
+		<p>Apakah anda sering mengalami sesak nafas?</p>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="sesaknafas" value="3">
+	  		<label class="form-check-label" for="sesaknafas">
+	    		Ya
+	  		</label>
+		</div>
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="sesaknafas" value="0">
+	  		<label class="form-check-label" for="sesaknafas">
+	  			Tidak
+	  		</label>
+		</div>
+		<button id="klik7" class="btn btn-primary">Lanjut</button>
+	</div>
+
+	<div id="hasil" class="alert" role="alert">
+		
+	</div>
+	<div id="hasil2" class="alert" role="alert">
+		
+	</div>
+	<br>
+	<button class="btn btn-primary" id="ulang">Ulangi</button>
+</div>
+</form>
+</body>
+</html>
