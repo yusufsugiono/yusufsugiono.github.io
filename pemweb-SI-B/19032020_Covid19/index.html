@@ -54,10 +54,10 @@
   			$('#nama').keyup(function(){
   				var inputNama = $('#nama').val();
   				if(inputNama==""){
-  					$('h1').text('Halo!');
+  					$('h1').text('Hai!');
   				}else{
   					$('#textHelp').fadeOut('fast');
-  					$('h1').text('Halo, '+ kapitalisasi(inputNama) + '!');
+  					$('h1').text('Hai, '+ kapitalisasi(inputNama) + '!');
   				}
   				
   			});
@@ -101,25 +101,25 @@
   					$('#peringatan').attr({
   						'class':'alert alert-danger',
   					});
-  					$('#peringatan').html("<p align='center'>Hubungi <b>119 EXT 9</b> atau periksakan diri ke rumah sakit rujukan COVID-19 di daerah Anda!</p>");
+  					$('#peringatan').html("<p align='center'>Kami benar-benar mengkhawatirkan kesehatanmu. Segera hubungi <b>119 EXT 9</b> atau periksakan diri ke rumah sakit rujukan COVID-19 di daerahmu.</p>");
   				}else if(jawab1==true && jawab2==false){
   					$('.panel').fadeOut(500);
   					$('#peringatan').attr({
   						'class':'alert alert-warning',
   					});
-  					$('#peringatan').html("<p align='center'><b>Karantina diri Anda selama 14 hari</b> terhitung setelah kontak/kunjungan.<br><br>Jika Anda mengalami demam diatas 38&deg; Celcius, pilek, batuk dan sesak napas selama masa karantina, segera hubungi <b>119 EXT 9</b> atau periksakan diri ke rumah sakit rujukan COVID-19 di daerah Anda!</p>");
+  					$('#peringatan').html("<p align='center'><b>Sebaiknya karantina diri kamu selama 14 hari</b> terhitung setelah kontak/kunjungan.<br><br>Jika kamu mengalami demam diatas 38&deg;C , pilek, batuk dan sesak napas selama masa karantina, segera hubungi <b>119 EXT 9</b> atau periksakan diri ke rumah sakit rujukan COVID-19 di daerahmu.</p>");
   				}else if(jawab1==false && jawab2==true){
   					$('.panel').fadeOut(500);
   					$('#peringatan').attr({
   						'class':'alert alert-warning',
   					});
-  					$('#peringatan').html("<p align='center'>Segera periksakan diri ke dokter terdekat dan istirahat yang cukup!</p>");
+  					$('#peringatan').html("<p align='center'>Kami mengkhawatirkan kesehatanmu. Segera periksakan kamu ke dokter terdekat dan istirahat yang cukup!</p>");
   				}else{
   					$('.panel').fadeOut(500);
   					$('#peringatan').attr({
   						'class':'alert alert-info',
   					});
-  					$('#peringatan').html("<p align='center'>Anda tidak perlu memeriksakan diri ke rumah sakit. Selalu jaga kesehatan Anda!</p>");
+  					$('#peringatan').html("<p align='center'>Kamu tidak perlu memeriksakan diri ke rumah sakit. Sebisa mungkin kamu #DiRumahAja agar dapat menekan angka penyebaran COVID-19. Selalu jaga kesehatanmu ya!</p>");
   				}
   				
   			}
@@ -163,7 +163,7 @@
 
 	<!-- alert -->
  	<div id="inialert" class="alert alert-info alert-dismissible" role="alert">
-                            Sebagai upaya pencegahan penyebaran COVID-19 aplikasi ini akan memberitahu apakah Anda harus memeriksakan diri atau tidak. <b style="letter-spacing: 0.5px;">Segera input nama Anda dan klik tombol mulai!</b>
+                            Sebagai upaya pencegahan penyebaran COVID-19 aplikasi ini akan memberitahu apakah kamu harus memeriksakan diri atau tidak. <b style="letter-spacing: 0.5px;">Ayo ketik namamu dan klik tombol Mulai!</b>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -175,7 +175,7 @@
 			<div class="col-md-6 col-md-offset-3 col-xs-12 col-sm-12">
 			<!-- isi content utama -->
 				<center>
-					<h1>Halo</h1>
+					<h1>Hai!</h1>
 				</center>
 
 					<!-- ambil nama pengguna -->
@@ -195,7 +195,7 @@
 					<div class="panel-heading">Jawab pertanyaan berikut!</div>
 					<div class="panel-body">
 						<div id="pilihan1">
-							<p align="center">Apakah anda pernah melakukan kontak dengan pasien positif Covid-19 (berada dalam satu ruangan yang sama/kontak dalam jarak 1 meter) ATAU pernah berkunjung ke negara/daerah endemis Covid-19 dalam 14 hari terakhir?</p>
+							<p align="center">Apakah kamu pernah melakukan kontak dengan pasien positif Covid-19 (berada dalam satu ruangan yang sama/kontak dalam jarak 1 meter) ATAU pernah berkunjung ke negara/daerah endemis Covid-19 dalam 14 hari terakhir?</p>
 							<center>
 								<button id="ya1" style="width: 100px;" type="button" class="btn btn-primary"><b>YA</b></button>
 								<button id="tidak1" style="width: 100px;" type="button" class="btn btn-primary"><b>TIDAK</b></button>
@@ -203,7 +203,7 @@
 						</div>
 
 						<div id="pilihan2">
-							<p align="center">Apakah anda sedang atau pernah mengalami demam diatas 38&deg; Celcius, pilek, batuk dan sesak napas?</p>
+							<p align="center">Apakah kamu sedang atau pernah mengalami demam diatas 38&deg;C, pilek, batuk dan sesak napas?</p>
 							<center>
 								<button id="ya2" style="width: 100px;" type="button" class="btn btn-primary"><b>YA</b></button>
 								<button id="tidak2" style="width: 100px;" type="button" class="btn btn-primary"><b>TIDAK</b></button>
