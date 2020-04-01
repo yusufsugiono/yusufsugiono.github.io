@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/covid_favicon.png">
+
+    <!-- Embed Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <title>LAWAN COVID19</title>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: #E8E0F8;
+        background-color: #222840;
+        font-family: 'Nunito', sans-serif;
+      }
+
+      .jumbotron {
+        background-image: url(img/covid_background2.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        height: 650px;
+        border-radius: 0 !important; 
+      }
+
+      .jumbotron h1, .jumbotron p {
+        text-shadow: 1px 1px 10px rgba(0, 0, 0,0.8);
+      }
+
+      .jumbotron h1 {
+        font-weight: 700;
+        color: #02B29F;
+      }
+
+      .jumbotron p {
+        color: #E8E0F8;
+        font-size: 14pt;
+      }
+
+      section h2 {
+        color: #02B29F !important;
+      }
+
+      #penularan .contentpenularan {
+        text-align: left;
+        font-size: 14pt;
+      }
+      
+      section p{
+        color: #E8E0F8;
+      }
+
+      #pencegahan .card {
+        background-color: #222840;
+        color: #E8E0F8;
+        border: none;
+        min-height: 425px;
+      }
+
+      section {
+        min-height: 650px; 
+      }
+
+      #penularan .gambarpenularan {
+          margin-top: 50px;
+          width: 35%;
+          visibility: visible;
+        }
+
+      #pencegahan {
+        background-color: #253050;
+      }
+
+
+
+      @media only screen and (max-width: 768px) {
+        /* HP: */
+        #penularan .gambarpenularan {
+          display: none;
+        }
+
+        #penularan .contentpenularan {
+          text-align: center;
+
+        }
+
+        #pencegahan .card {
+        background-color: #222840;
+        color: #E8E0F8;
+        border: none;
+        min-height: 250px;
+      }
+      }
+
+    </style>
+
+  </head>
+  <body id="home">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#home">LAWAN COVID-19</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#penularan">Penularan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pencegahan">Pencegahan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Tes Diri</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <div class="jumbotron text-white text-center mt-5">
+      <img class="img-fluid" src="img/covid_simetric_198x500.png" alt="">
+      <h1 class="display-4">LAWAN COVID-19</h1>
+      <p>COVID-19 adalah penyakit menular yang disebabkan oleh jenis coronavirus yang baru ditemukan. Ini merupakan virus baru dan penyakit yang sebelumnya tidak dikenal sebelum terjadi wabah di Wuhan, Tiongkok, bulan Desember 2019.</p>
+    </div>
+
+    <section id="penularan" class="py-5">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row align-items-center justify-content-center mt-5">
+              <div class="col-md-8 text-center">
+                  <img src="img/covid_md_198px.png" alt="" class="img-fluid gambarpenularan">
+                <h2 style="font-weight: 400;">Bagaimana Penularan Covid-19?</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+
+            <div class="row pb-5 pt-5">
+              <div class="col-md-2 text-center">
+                <img src="img/icon_object.png" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-8 align-self-center">
+                <p class="contentpenularan">Bersentuhan dengan objek yang terkontaminasi virus</p>
+              </div>
+            </div>
+
+
+            <div class="row pb-5">
+              <div class="col-md-2 text-center">
+                <img src="img/icon_human-contact.png" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-8 align-self-center">
+                <p class="contentpenularan">Bersentuhan dengan sesama manusia</p>
+              </div>
+            </div>
+
+            <div class="row pb-5">
+              <div class="col-md-2 text-center">
+                <img src="img/icon_animal-contact.png" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-8 align-self-center">
+                <p class="contentpenularan">Bersentuhan dengan hewan</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pencegahan" class="py-5">
+      <div class="container">
+        <h2 class="text-center my-3">Yuk Kita Cegah Bersama!</h2>
+        <div class="row text-center">
+
+          <div class="col-md-3">
+            <div class="card my-2">
+              <div class="card-body">
+                <h5 class="card-title">CUCI TANGAN</h5>
+                <img src="img/icon_handwash.png" alt="" class="img-fluid gambar">
+                <p class="card-text">Rajin-rajinlah membasuh kedua tangan menggunakan sabun cuci tangan</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card my-2">
+              <div class="card-body">
+                <h5 class="card-title">MEMAKAI MASKER</h5>
+                <img src="img/icon_masker.png" alt="" class="img-fluid gambar">
+                <p class="card-text">Pakai masker bagi kamu yang sedang mengalami batuk atau gejala lainnya.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card my-2">
+              <div class="card-body">
+                <h5 class="card-title">GUNAKAN TISU</h5>
+                <img src="img/icon_tissue.png" alt="" class="img-fluid gambar">
+                <p class="card-text">Saat bersin, gunakan tisu atau penutup hidung lainnya sehingga tidak terkena tangan. </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card my-2">
+              <div class="card-body">
+                <h5 class="card-title">SOCIAL DISTANCING</h5>
+                <img src="img/icon_human-contact.png" alt="" class="img-fluid gambar">
+                <p class="card-text">Hindari kerumunan dan kegiatan di luar rumah jika tidak ada keperluan yang benar-benar penting.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light">
+      <div class="row">
+        <div class="col text-center">
+          <small>Copyright 2020 &copy; Yusuf Sugiono - 180441100060 <br>
+        Sistem Informasi - Universitas Trunojoyo Madura</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer end -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      $('.nav-link').on('click', function(e){
+        var tujuan = $(this).attr('href');
+        var elemenTujuan = $(tujuan);
+
+        $('body').animate({
+          scrollTop: elemenTujuan.offset().top
+        }, 1000, 'swing');
+
+        /*e.preventDefault();*/
+      });
+    </script>
+  </body>
+</html>
