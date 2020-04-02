@@ -34,9 +34,30 @@
         height: 650px;
         border-radius: 0 !important; 
       }
+      
+      .jumbotron img {
+        opacity: 0;
+        transition: 1s;
+        transform: translate(0, 25px);
+
+      }
+      .jumbotron h1, .jumbotron p {
+        text-shadow: 1px 1px 10px rgba(0, 0, 0,0.8);
+        opacity: 0;
+        transition: 2s;
+      }
+
+      .jumbotron img.muncul{
+        transform: translate(0,0);
+      }
+
+      .jumbotron h1.muncul, .jumbotron p.muncul, .jumbotron img.muncul {
+        opacity: 1;
+      }
 
       .jumbotron h1, .jumbotron p {
         text-shadow: 1px 1px 10px rgba(0, 0, 0,0.8);
+        opacity: 0;
       }
 
       .jumbotron h1 {
@@ -49,8 +70,16 @@
         font-size: 14pt;
       }
 
+      section {
+        min-height: 650px; 
+      }
+
       section h2 {
         color: #02B29F !important;
+      }
+      
+      section p{
+        color: #E8E0F8;
       }
 
       #penularan .contentpenularan {
@@ -58,8 +87,31 @@
         font-size: 14pt;
       }
       
-      section p{
-        color: #E8E0F8;
+      #penularan .gambarpenularan {
+          margin-top: 50px;
+          width: 35%;
+          visibility: visible;
+        }
+      
+      #penularan .judulnya, #penularan .kontennya {
+        opacity: 0;
+        transition: 0.5s;
+      }
+
+      #penularan .kontennya {
+        transform: translate(0, 40px);
+      }
+      
+      #penularan .kontennya.muncul, #penularan .judulnya.muncul {
+        opacity: 1;
+      }
+
+      #penularan .kontennya.muncul {
+        transform: translate(0, 0);
+      }
+
+      #pencegahan {
+        background-color: #253050;
       }
 
       #pencegahan .card {
@@ -70,21 +122,23 @@
         min-height: 425px;
       }
 
-      section {
-        min-height: 650px; 
+
+      #pencegahan .judulnya, #pencegahan .card{
+        opacity: 0;
+        transition: 1s;
       }
 
-      #penularan .gambarpenularan {
-          margin-top: 50px;
-          width: 35%;
-          visibility: visible;
-        }
-
-      #pencegahan {
-        background-color: #253050;
+      #pencegahan .card {
+        transform: translate(0, 40px);
       }
 
+      #pencegahan .card.muncul {
+        transform: translate(0, 0);
+      }
 
+      #pencegahan .judulnya.muncul, #pencegahan .card.muncul{
+        opacity: 1;
+      }
 
       @media only screen and (max-width: 768px) {
         /* HP: */
@@ -115,7 +169,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#penularan">Penularan</a>
@@ -124,7 +178,7 @@
             <a class="nav-link" href="#pencegahan">Pencegahan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Tes Diri</a>
+            <a class="nav-link" href="#tesdiri">Tes Diri</a>
           </li>
         </ul>
       </div>
@@ -142,7 +196,7 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <div class="row align-items-center justify-content-center mt-5">
+            <div class="row align-items-center justify-content-center mt-5 judulnya">
               <div class="col-md-8 text-center">
                   <img src="img/covid_md_198px.png" alt="" class="img-fluid gambarpenularan">
                 <h2 style="font-weight: 400;">Bagaimana Penularan Covid-19?</h2>
@@ -151,7 +205,7 @@
           </div>
           <div class="col-lg-6">
 
-            <div class="row pb-5 pt-5">
+            <div class="row pb-5 pt-5 kontennya">
               <div class="col-md-2 text-center">
                 <img src="img/icon_object.png" alt="" class="img-fluid">
               </div>
@@ -161,7 +215,7 @@
             </div>
 
 
-            <div class="row pb-5">
+            <div class="row pb-5 kontennya">
               <div class="col-md-2 text-center">
                 <img src="img/icon_human-contact.png" alt="" class="img-fluid">
               </div>
@@ -170,7 +224,7 @@
               </div>
             </div>
 
-            <div class="row pb-5">
+            <div class="row pb-5 kontennya">
               <div class="col-md-2 text-center">
                 <img src="img/icon_animal-contact.png" alt="" class="img-fluid">
               </div>
@@ -187,7 +241,7 @@
 
     <section id="pencegahan" class="py-5">
       <div class="container">
-        <h2 class="text-center my-3">Yuk Kita Cegah Bersama!</h2>
+        <h2 class="text-center my-3 judulnya">Yuk Kita Cegah Bersama!</h2>
         <div class="row text-center">
 
           <div class="col-md-3">
@@ -256,6 +310,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
+      /*animasi opening jumbotron*/
+      $(window).on('load',function(){
+        $('.jumbotron img').addClass('muncul');
+        $('.jumbotron h1').addClass('muncul');
+        $('.jumbotron p').addClass('muncul');
+      });
+
+      /*smooth-scroll*/
       $('.nav-link').on('click', function(e){
         var tujuan = $(this).attr('href');
         var elemenTujuan = $(tujuan);
@@ -264,8 +326,37 @@
           scrollTop: elemenTujuan.offset().top
         }, 1000, 'swing');
 
-        /*e.preventDefault();*/
       });
+
+      /*animasi halaman saat scroll*/
+      $(window).scroll(function(){
+        var wScroll = $(this).scrollTop();
+
+        /*section penularan*/
+        if (wScroll > $('#penularan').offset().top - 275){
+          $('#penularan .judulnya').addClass('muncul');
+          $('#penularan .kontennya').each( function(i) {
+            setTimeout(function() {
+              $('.kontennya').eq(i).addClass('muncul');
+            }, 300 * (i+1));              
+          });
+
+        }
+
+        /*section pencegahan*/
+        if (wScroll > $('#pencegahan').offset().top - 325){
+          $('#pencegahan .judulnya').addClass('muncul');
+          $('#pencegahan .card').each( function(i) {
+            setTimeout(function() {
+              $('.card').eq(i).addClass('muncul');
+            }, 300 * (i+1));              
+          });
+
+        }
+
+      });
+
+      
     </script>
   </body>
 </html>
