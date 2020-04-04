@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://yusufsugiono.github.io/assets/vendor/fontawesome/css/all.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -140,6 +143,63 @@
         opacity: 1;
       }
 
+      #tesdiri h2, #tesdiri .card {
+        opacity: 0;
+        transition: 1s;
+      }
+
+      #tesdiri .card {
+        transform: translate(0,25px);
+      }
+      
+      #tesdiri .card.muncul {
+        transform: translate(0,0);
+      }
+
+      #tesdiri h2.muncul, #tesdiri .card.muncul {
+        opacity: 1;
+      }
+
+      #tesdiri .card {
+        min-height: 400px;
+        background-color: #253050;
+        color: inherit;
+        border: none;
+        box-shadow: 5px 5px 20px rgba(0,0,0, 0.3);
+      }
+
+      #tesdiri .card .progress {
+        height: 5px;
+        background-color: #374775;
+      }
+
+      #tesdiri .card .progress-bar{
+        width: 0%;
+        background-color: #02B29F;
+      }
+
+      #tesdiri .card h4{
+        margin-top: 50px;
+      }
+
+      .btn {
+        background-color: #2f3a5b;
+        color: #0c9b8a;
+      }
+
+      .btn:hover {
+        background-color: #0c9b8a;
+        color : #2f3a5b;
+      }
+
+      .btn.ya , .btn.tdk {
+        width: 50px;
+      }
+
+      .card-footer {
+        height: 73px;
+      }
+  
       @media only screen and (max-width: 768px) {
         /* HP: */
         #penularan .gambarpenularan {
@@ -153,6 +213,10 @@
 
         #pencegahan .card {
         min-height: 250px;
+        }
+
+        #tesdiri .card h4{
+        margin-top: 0px;
       }
       }
 
@@ -278,7 +342,7 @@
             <div class="card my-2">
               <div class="card-body">
                 <h5 class="card-title">SOCIAL DISTANCING</h5>
-                <img src="img/icon_human-contact.png" alt="" class="img-fluid gambar">
+                <img src="img/icon_social-distancing.png" alt="" class="img-fluid gambar">
                 <p class="card-text">Hindari kerumunan dan kegiatan di luar rumah jika tidak ada keperluan yang benar-benar penting.</p>
               </div>
             </div>
@@ -288,8 +352,59 @@
       </div>
     </section>
 
-    <section id="tesdiri" class="py-5">
-      
+    <section id="tesdiri" class="d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2 class="text-center mb-5">Tes Risiko Diri</h2>
+            <div class="card">
+
+              <div class="card-header">
+                <div class="progress mb-1">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span id="proses">0 / 21 Pernyataan</span>
+              </div>
+
+              <div class="card-body text-center">
+                <h4>Ayo tes risiko diri kamu tertular Covid-19!</h4>
+                <p class="pembuka">Tes ini akan memperkirakan tingkat potensi tertular di luar rumah, di dalam rumah, berdasarkan keseharian dan juga imunitas tubuh kamu. Tes ini memiliki total sebanyak 21 pernyataan. Kamu hanya diminta menekan tombol centang jika sesuai, atau tekan tombol silang jika tidak sesuai dengan keseharian atau keadaanmu.</p>
+                <p class="soal1">Pergi keluar rumah</p>
+                <p class="soal2">Menggunakan transportasi umum seperti angkutan online, angkot, bus, taksi, atau kereta api</p>
+                <p class="soal3">Tidak memakai masker pada saat berkumpul dengan orang lain</p>
+                <p class="soal4">Berjabat tangan dengan orang lain</p>
+                <p class="soal5">Tidak membersihkan tangan dengan hand sanitizer atau tisu basah sebelum pegang kendali mobil atau motor</p>
+                <p class="soal6">Menyentuh benda atau uang yang juga disentuh orang lain</p>
+                <p class="soal7">Tidak Menjaga Jarak 1,5m dengan orang lain ketika belanja, bekerja, belajar dan beribadah</p>
+                <p class="soal8">Makan di luar rumah (warung atau restoran)</p>
+                <p class="soal9">Tidak minum hangat & cuci tangan dengan sabun setelah tiba di tujuan</p>
+                <p class="soal10">Sedang berada di wilayah kelurahan tempat pasien tertular</p>
+                <p class="soal11">Tidak pasang hand sanitizer di depan pintu masuk, untuk bersihkan tangan sebelum pegang gagang (handle) pintu masuk rumah</p>
+                <p class="soal12">Tidak mencuci tangan dengan sabun setelah tiba di rumah</p>
+                <p class="soal13">Tidak menyediakan tisu basah atau antiseptik, masker, sabun antiseptic bagi keluarga di rumah</p>
+                <p class="soal14">Tidak segera merendam baju dan celana bekas pakai di luar rumah kedalam air panas atau sabun</p>
+                <p class="soal15">Tidak segera mandi keramas setelah saya tiba di rumah</p>
+                <p class="soal16">Tidak mensosialisasikan checklist penilaian resiko pribadi ini kepada keluarga di rumah</p>
+                <p class="soal17">Dalam sehari tidak terkena cahaya matahari minimal 15 menit</p>
+                <p class="soal18">Tidak jalan kaki atau berolahraga minimal 30 menit setiap hari</p>
+                <p class="soal19">Jarang minum vitamin C & E serta kurang tidur</p>
+                <p class="soal20">Usia di atas 60 tahun</p>
+                <p class="soal21">Memiliki penyakit jantung atau diabetes atau gangguan pernafasan kronik</p>
+                <h5></h5>
+
+              </div>
+
+              <div class="card-footer text-center">
+                <button type="button" class="btn btn-lg mulai"> <b>Mulai Tes</b> </button>
+                <button type="button" class="btn btn-lg mx-2 ya ya1" onclick="lanjut(totalKlik,totalYa);"> <i class="fas fa-check"></i> </button>
+                <button type="button" class="btn btn-lg mx-2 tdk tdk1" onclick="lanjut(totalKlik,totalYa);"> <i class="fas fa-times"></i> </button>
+                <button type="button" class="btn btn-lg ulangi"><b>Ulangi Tes</b></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
 
@@ -354,6 +469,120 @@
 
         }
 
+        /*section tes diri*/
+        if (wScroll > $('#tesdiri').offset().top - 375) {
+          $('#tesdiri h2').addClass('muncul');
+        }
+
+        if (wScroll > $('#tesdiri').offset().top - 250){
+          $('#tesdiri .card').addClass('muncul');
+        }
+
+      });
+
+      /*penanganan soal*/
+      $('document').ready(function(){
+
+        /*menyembunyikan pernyataan di awal*/
+        for (var i = 1; i <=21 ; i++) {
+          $('.soal'+i).hide();
+        }
+
+        /*menyembunyikan hasil di awal*/
+        $('h5').hide();
+
+
+        /*menyembunyikan tombol ya, tidak, dan ulangi di awal*/
+        $('.ya').hide();
+        $('.tdk').hide();
+        $('.ulangi').hide();
+
+        /*saat tombol mulai diklik dan muncul soal1*/
+        $('.mulai').click(function() {
+          $(this).fadeOut(500);
+          $('h4, .pembuka').fadeOut(500);
+          $('.ya, .tdk, .soal1').delay(500).fadeIn(500);
+          sampaiMana(totalKlik);
+          setTimeout(function(){
+            $('#tesdiri .card-body').addClass('align-items-center d-flex justify-content-center');
+          }, 500);
+        });
+      });
+
+
+      var totalKlik = 1;
+      var totalYa   = 0;
+
+      /*saat tombol 'ya' diklik*/
+      $('.ya').click(function() {
+        totalYa += 1;
+        totalKlik += 1;
+        sampaiMana(totalKlik);
+      });
+
+      /*saat tombol 'tidak' diklik*/
+      $('.tdk').click(function() {
+        totalKlik += 1;
+        sampaiMana(totalKlik);
+      });
+
+
+      function lanjut(totalKlik,totalYa){
+        var keluar    = '.soal'+(totalKlik);
+        var masuk     = '.soal'+(totalKlik+1);
+        /*memanggil soal secara bergiliran*/
+        if(totalKlik<21){
+          $(keluar).hide();
+          $(masuk).delay(100).show();
+        }else{
+          $(keluar).fadeOut(500);
+          $('.ya, .tdk').fadeOut(500);
+          $('.ulangi').delay(500).fadeIn(500);
+          if (totalYa<=7) {
+            $('h5').html('Anda BERISIKO RENDAH tertular Covid-19');
+          }else if (totalYa<=14){
+            $('h5').html('Anda <span class="text-warning">BERISIKO SEDANG</span> tertular Covid-19');
+          }else{
+            $('h5').html('Anda <span class="text-danger">BERISIKO TINGGI</span> tertular Covid-19');            
+          }
+          $('h5').delay(500).fadeIn(500);
+        }
+      };
+
+      if(totalKlik==22){
+      }
+
+      /*fungsi untuk progresbar dinamis*/
+      function sampaiMana(totalKlik){
+
+        if(totalKlik<22){
+          $('#proses').text(totalKlik + ' / 21 Pernyataan');
+          var panjang = eval((totalKlik-1) / 21 * 100);
+          var persentase = panjang + '%';
+          $('.progress-bar').css('width', persentase );
+        }else if(totalKlik==22){
+          $('#proses').text('Selesai');
+          $('.progress-bar').css('width', '100%' );
+        }
+      }
+
+      /*saat tombol 'ulangi' ditekan*/
+      $('.ulangi').click(function(){
+        $('h5').fadeOut(500);
+        $(this).fadeOut(500);
+        setTimeout(function(){
+            $('#tesdiri .card-body').removeClass('align-items-center d-flex justify-content-center');
+          }, 500);
+        setTimeout(function(){
+            $('.progress-bar').css('width', '0%' );
+            $('#proses').text('0 / 21 Pernyataan');
+            $('h4, .pembuka, .mulai').delay(500).fadeIn(500);
+          }, 300);
+
+        /*reset*/
+        totalKlik = 1;
+        totalYa   = 0;
+        
       });
 
       
