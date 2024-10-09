@@ -1,120 +1,295 @@
+/*
+  Define vars
+*/
+
+:root {
+  --primary-bg-color: #151515;
+  --secondary-bg-color: #202022;
+  --primary-color: white;
+  --secondary-color: #949495;
+  --tertiary-color: #303030;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+	2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+	Typographic tweaks!
+	3. Add accessible line-height
+	4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+	5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+	6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+	7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-        font-family: 'Nunito','Arial', sans-serif;
-      }
-
-.navbar {
-	background-color: #2C3E50 !important;
-	font-size: 1.5rem;
+  padding: 50px 20px;
+  background-color: var(--primary-bg-color);
+  color: var(--secondary-color);
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
 }
 
-.navbar .navbar-brand{
-	font-size: 1.5rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-color);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
-.jumbotron {
-	min-height: 100vh;
-	text-align: center;
-	padding-top: 75px;
-	background-color: #18BC9C;
-	color: white;
+a {
+  text-decoration: underline;
+  color: var(--primary-color);
 }
 
-.jumbotron .display-4 {
-	font-family: 'Cairo','Arial',sans-serif;
-	font-size: 2.5rem;
-	font-weight: 700;
+.header__before_name {
+  font-size: 1rem;
 }
 
-.jumbotron .lead {
-	font-size: 1.5rem;
+.header__headline {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+  color: var(--primary-color);
 }
 
-.foto {
-	border-radius: 50%;
-	height: 300px;
+.header__name {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
 }
 
-section {
-	min-height: 575px;
+.header__about {
+  margin: 30px 0;
+  font-size: 1.2rem;
 }
 
-section hr {
-	width: 250px;
-	border-top: 3px solid black;
-	border-color: #2C3E50;
+.header__nav {
+  display: none;
 }
 
-section h2 {
-	color: #2C3E50;
-	font-weight: bolder;
+section.header__contacts {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: row;
+  margin: 50px 0;
+  border: none;
 }
 
-.about p {
-	text-align: center;
+.header__contacts a {
+  font-size: 1rem;
+  display: inline-block;
+  border: solid var(--secondary-color) 1px;
+  border-radius: 5px;
+  height: 32px;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  margin: 0 10px;
+  padding: 5px 10px;
 }
 
-.about {
-	background-color: #18BC9C;
-	color: white;
-	font-size: 1.25rem;
+.header__profile_picture {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-.about h2 {
-	color: white;
+section,
+article {
+  margin: 34px 0;
 }
 
-.about hr {
-	border-color: white;
+section h2,
+article h2 {
+  font-size: 0.8em;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
-.bg-ijo {
-	background-color: #18BC9C;
-	border-color:  #18BC9C;
+section h3,
+article h3 {
+  font-weight: 300;
+  font-size: 1.2rem;
 }
 
-.bg-ijo:hover {
-	background-color: #10A084;
-	border-color:  #18BC9C
+.section__portfolio a {
+  padding: 20px;
+  margin: 10px 0;
 }
 
-.bg-ijo:active {
-	background-color: #10A084;
-	border-color:  #18BC9C
+article a p {
+  color: var(--secondary-color);
 }
 
-.ijo {
-	color: #FFFFFF;
+article a {
+  text-decoration: none;
+  display: block;
+  background-color: var(--secondary-bg-color);
+  margin: 10px 0;
+  padding: 0;
 }
 
-.portofolio-link {
-	color: inherit;
-	text-decoration: none;
+.section__portfolio h3 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 
-.portofolio-link:hover {
-	color: inherit;
-	text-decoration: none;
-	box-shadow: 9px 9px 12px -1px rgba(0,0,0,0.29);
-	-webkit-box-shadow: 9px 9px 12px -1px rgba(0,0,0,0.29);
-	-moz-box-shadow: 9px 9px 12px -1px rgba(0,0,0,0.29);
+.section__blogpost h3 {
+  font-weight: 500;
 }
 
+.highlight__blogpost {
+  padding: 15px 20px;
+}
+
+.highlight__blogpost h3 {
+  margin-bottom: 10px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* Medium devices (tab, above 768 px) */
+@media (min-width: 768px) {
+  .section__blogpost a {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .section__blogpost > a > img {
+    width: 25%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .section__blogpost .highlight__blogpost {
+    background-color: var(--secondary-bg-color);
+    width: 75%;
+  }
+}
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-	/* .foto {
-		height: 200px;
-	} */
+  body {
+    padding: 0;
+    display: flex;
+  }
 
-	.jumbotron .display-4 {
-	font-size: 3.5rem ;
-	}
-	
-	.about p {
-		text-align: justify;
-	}
+  header {
+    height: 85vh;
+    width: 50%;
+    position: fixed;
+    top: 40;
+    padding: 20px;
+  }
+
+  main {
+    margin-left: 50vw;
+    width: 50%;
+    padding: 20px;
+  }
+
+  footer {
+    position: fixed;
+    display: flex;
+    bottom: 20px;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .header__nav {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 52px;
+  }
+
+  .header__contacts {
+    position: fixed;
+    bottom: 50px;
+  }
+
+  .header__nav ul li {
+    list-style-type: square;
+  }
+
+  section,
+  article {
+    margin: 34px 0;
+  }
+
+  article.section__portfolio {
+    margin-top: 0;
+  }
 }

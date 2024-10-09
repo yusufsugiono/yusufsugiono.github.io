@@ -1,183 +1,127 @@
-<!doctype html>
-<html lang="en" id="home">
- <head>
-   <!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/vnd.icon"
+      href="assets/img/favicon/favicon.ico"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Yusuf Sugiono</title>
+  </head>
+  <body>
+    <header>
+      <p class="header__before_name">Hi, I'm</p>
+      <h1 class="header__name">Yusuf Sugiono</h1>
+      <p class="header__headline">Full-stack Developer</p>
+      <p class="header__about">
+        Long life learner. Enthusiastic in learning technology, especially on
+        web development, also machine learning and cloud computing.
+      </p>
+      <nav class="header__nav">
+        <ul>
+          <li>PROJECTS</li>
+          <li>BLOG</li>
+        </ul>
+      </nav>
+      <section class="header__contacts">
+        <img
+          src="assets/img/profile_48x48.jpg"
+          alt="Profile Picture"
+          class="header__profile_picture"
+        />
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/yusuf-sugiono-04b613185/"
+          ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+        >
+        <a target="_blank" href="http://github.com/yusufsugiono"
+          ><i class="fa-brands fa-github"></i> GitHub</a
+        >
+      </section>
+    </header>
+    <main>
+      <aside class="aside__promo"></aside>
+      <article class="section__portfolio">
+        <h2>PROJECTS</h2>
+        <a
+          href="https://github.com/yusufsugiono/klasifikasi-tanaman"
+          target="_blank"
+        >
+          <h3>klasifikasi-tanaman</h3>
+          <p>🌱 Find out what plants are suitable to plant on your land</p>
+        </a>
 
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-   
-   <!-- Font Awesome -->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-   
-   <!-- Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet"> 
+        <a
+          href="https://github.com/yusufsugiono/klasifikasi-tanaman"
+          target="_blank"
+        >
+          <h3>klasifikasi-tanaman</h3>
+          <p>🌱 Find out what plants are suitable to plant on your land</p>
+        </a>
+      </article>
 
-   <!-- My Custom CSS -->
-   <link rel="stylesheet" href="assets/css/style.css">
+      <article class="section__blogpost">
+        <h2>BLOG</h2>
+        <a href="#" target="_blank">
+          <!-- mungkin butuh gambar juga disini -->
+          <img
+            src="https://segalahal.com/wp-content/uploads/2023/09/SegalaHal-Deploy-Aplikasi-NodeJs-di-Compute-Engine.png"
+            alt=""
+          />
+          <div class="highlight__blogpost">
+            <h3>Deploy Aplikasi NodeJs di Compute Engine</h3>
+            <p>
+              Halo, sahabat-sahabat SegalaHal semuanya! Kalian memiliki aplikasi
+              NodeJs dan ingin mendeploynya agar bisa online dan menjangkau
+              banyak orang? Jika iya,&nbsp;[&hellip;]
+            </p>
+          </div>
+        </a>
+        <a href="#" target="_blank">
+          <!-- mungkin butuh gambar juga disini -->
+          <img
+            src="https://segalahal.com/wp-content/uploads/2023/09/SegalaHal-Deploy-Aplikasi-NodeJs-di-Compute-Engine.png"
+            alt=""
+          />
+          <div class="highlight__blogpost">
+            <h3>Deploy Aplikasi NodeJs di Compute Engine</h3>
+            <p>
+              Halo, sahabat-sahabat SegalaHal semuanya! Kalian memiliki aplikasi
+              NodeJs dan ingin mendeploynya agar bisa online dan menjangkau
+              banyak orang? Jika iya,&nbsp;[&hellip;]
+            </p>
+          </div>
+        </a>
+      </article>
+    </main>
+    <footer>
+      <p>
+        &copy; 2024. Built with
+        <i style="color: rgb(189, 74, 74)" class="fa-solid fa-heart"></i> by
+        Yusuf Sugiono. <br />
+        Design inspired by
+        <a href="https://sarahdayan.dev" target="_blank">Sarah Dayan</a>.
+      </p>
+    </footer>
 
-   <link rel="icon" type="image/png" href="assets/img/favicon/favicon.png">
-
-   <title>Yusuf Sugiono</title>
- </head>
- <body>
-
-
-   <!-- Navbar Start -->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-     <a class="navbar-brand" href="#home">Yusuf Sugiono</a>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-       <div class="navbar-nav ml-auto">
-         <a class="nav-item nav-link" href="#portfolio">Portfolio</a>
-         <a class="nav-item nav-link" href="#about">About</a>
-         <a class="nav-item nav-link" href="#findme">Find Me</a>
-       </div>
-     </div>
-   </nav>
-   <!-- Navbar End -->
-
-   <!-- Jumbotron Start -->
-   <div class="jumbotron jumbotron-fluid">
-     <div class="container">
-       <img class="foto img-fluid mt-5" src="assets/img/profile.png" alt="">
-       <h1 class="display-4 mt-4">Yusuf Sugiono</h1>
-       <p class="lead">Tech Enthusiast<br>Mahasiswa Sistem Informasi - Universitas Trunojoyo</p>
-     </div>
-   </div>
-   <!-- Jumbotron End -->
-
- <!-- Section Portfolio Start -->
- <section class="portfolio" id="portfolio">
-   <div class="container">
-     <div class="row">
-       <div class="col text-center my-4">
-         <h2>Portfolio</h2>
-         <hr>
-       </div>
-     </div>
-
-     <div class="row justify-content-center">
-   
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card">
-          <a class="portofolio-link" target="_blank" href="https://yusufsugiono.github.io/pemweb-SI-B/04012020_Covid19/">
-           <img src="assets/img/portfolio/1.png" class="card-img-top">
-           <div class="card-body">
-             <p class="card-text">Website LAWAN COVID19 untuk mensosialisasikan tentang apa itu Covid19, penularan dan pencegahan, serta self-assesment risiko terpapar Covid19</p>
-           </div>
-           </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card">
-          <a class="portofolio-link" target="_blank" href="https://github.com/yusufsugiono/klasifikasi-gambar-bunga">
-           <img src="assets/img/portfolio/2.png" class="card-img-top">
-           <div class="card-body">
-             <p class="card-text">Pembuatan model machine learning dengan membandingkan beberapa metode sehingga dapat mengenali jenis-jenis bunga tertentu</p>
-           </div>
-           </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 my-3">
-        <div class="card">
-          <a class="portofolio-link" target="_blank" href="https://github.com/yusufsugiono/Capstone_SIB_Dicoding">
-           <img src="assets/img/portfolio/3.png" class="card-img-top">
-           <div class="card-body">
-             <p class="card-text">Proyek machine learning untuk memprediksi kualitas udara untuk lingkup wilayah DKI Jakarta dan ditampilkan dalam bentuk website</p>
-           </div>
-           </a>
-        </div>
-      </div>
-
-   </div>
- </section>
- <!-- Section Portfolio End -->
-
-  <!-- Section About Start -->
-   <section class="about pb-5" id="about">
-     <div class="container">
-       <div class="row">
-         <div class="col text-center my-4">
-         <h2>About</h2>
-         <hr>
-         </div>
-       </div>
-       <div class="row justify-content-center">
-         <div class="col-md-5">
-           <p>Halo nama saya Yusuf Sugiono,saya biasa dipanggil Yusuf. Saya mahasiswa Sistem Informasi, Fakultas Teknik di Universitas Trunojoyo Madura. Saya lahir di sebuah daerah dengan sebutan Kota Angin, Nganjuk. Saya mulai berminat di dunia pemrograman sejak masih duduk di bangku SMA. Pemrograman yang pertama kali saya pelajari adalah Web. Saat itu saya masih ngoding menggunakan smartphone.</p>
-         </div>
-         <div class="col-md-5">
-           <p> Impian saya adalah menjadi seorang Full Stack Developer profesional, atau setidaknya saya dapat menggeluti dunia IT. Selain tertarik pada pengembangan web, saya juga tertarik dengan Cloud Computing dan Machine Learning. Dunia IT yang begitu luas dan terus berkembang menjadi tantangan tersendiri dan semakin menarik bagi saya.
-           </p>
-         </div>
-       </div>
-     </div>
-   </section>
-   <!-- Section About End -->
-
-
-
- <!-- Section Find Me Start -->
- <section class="contact" id="findme">
-   <div class="container mb-3">
-     <div class="row">
-       <div class="col text-center my-4">
-         <h2>Find Me</h2>
-         <hr>
-       </div>
-     </div>
-
-     <div class="row justify-content-center mt-5">
-       <div class="col-md-2 col-sm-4 col-4 text-center">
-         <a href="https://github.com/yusufsugiono" target="_blank" class="text-dark"><i class="fab fa-github fa-5x" aria-hidden="true"></i></a>
-       </div>
-       <div class="col-md-2 col-sm-4 col-4 text-center">
-         <a href="https://instagram.com/yusufsugiono" target="_blank" class="text-dark"><i class="fab fa-instagram fa-5x" aria-hidden="true"></i>
-</a>
-       </div>
-       <div class="col-md-2 col-sm-4 col-4 text-center">
-         <a href="https://www.linkedin.com/in/yusuf-sugiono-04b613185" target="_blank" class="text-dark"><i class="fab fa-linkedin fa-5x" aria-hidden="true"></i>
-</i></a>
-       </div>
-     </div>
-   </div>
- </section>
- <!-- Section Contact Me End -->
-
- <!-- Footer Start -->
- <footer class="footer bg-dark text-light container-fluid">
-   <div class="row py-3">
-     <div class="col text-center">
-       <small>&copy; <span id="year"></span> My Portfolio - built with <i class="fa fa-heart" style="color:salmon;"></i> by Yusuf Sugiono</small>
-     </div>
-   </div>      
- </footer>
- <!-- Footer End -->
-
-   <!-- Optional JavaScript -->
-   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-   <script>
-     /*smooth-scroll*/
-     $('.nav-link').click(function(e){
-     var tujuan = $(this).attr('href');
-     var elemenTujuan = $(tujuan);
-
-     $('html,body').animate({
-       scrollTop: elemenTujuan.offset().top-50
-     }, 500, 'swing');
-     });
-
-     $('#year').html(new Date().getFullYear());
-
-   </script>
- </body>
+    <!-- Javascript -->
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/28a0cf18f1.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
