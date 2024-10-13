@@ -161,13 +161,78 @@ section.header__contacts {
   margin-right: 10px;
 }
 
+aside {
+  margin-right: 20px;
+  position: fixed;
+  bottom: 0;
+  z-index: 4;
+  font-size: 0.85em;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+aside .close-btn {
+  display: flex;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  font-size: 1.3em;
+  z-index: 5;
+}
+
+.highlights__content a {
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-top: 10px;
+  padding: 3px 12px;
+  background-color: var(--tertiary-color);
+  color: white;
+  border: solid white 1px;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+aside h2 {
+  display: block;
+  text-align: center;
+}
+
+.aside__highlights article {
+  /* display: flex; */
+  display: block;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border: solid white 2px;
+box-shadow: 0px 0px 86px 30px rgba(0,0,0,0.78);
+-webkit-box-shadow: 0px 0px 86px 30px rgba(0,0,0,0.78);
+-moz-box-shadow: 0px 0px 86px 30px rgba(0,0,0,0.78);
+}
+
+.aside__highlights > article > img {
+  /* width: 25%; */
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.aside__highlights .highlights__content {
+  background-color: var(--secondary-bg-color);
+  /* width: 75%; */
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 section,
 article {
   margin: 34px 0;
 }
 
 section h2,
-article h2 {
+article h2,
+aside h2 {
   font-size: 0.8em;
   font-weight: 200;
   text-align: center;
@@ -189,7 +254,7 @@ article a p {
   color: var(--secondary-color);
 }
 
-article a {
+article a, aside a {
   text-decoration: none;
   display: block;
   background-color: var(--secondary-bg-color);
@@ -237,6 +302,22 @@ footer p {
     background-color: var(--secondary-bg-color);
     width: 75%;
   }
+
+  .aside__highlights article {
+    display: flex;
+  }
+
+  .aside__highlights > article > img {
+    width: 25%;
+  }
+  
+  .aside__highlights .highlights__content {
+    width: 75%;
+  }
+
+  .highlights__content button {
+    align-self: center;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -258,6 +339,23 @@ footer p {
     margin-left: 50vw;
     width: 50%;
     padding: 20px;
+  }
+
+  aside {
+    right: 0;
+    width: 23%;
+  }
+
+  .aside__highlights article {
+    display: block;
+  }
+
+  .aside__highlights > article > img {
+    width: 100%;
+  }
+  
+  .aside__highlights .highlights__content {
+    width: 100%;
   }
 
   footer {
