@@ -52,7 +52,7 @@ function renderBlogContent({
 
   const blogImage = document.createElement("img");
   blogImage.setAttribute("src", jetpack_featured_media_url);
-  blogImage.setAttribute("alt", "Thumbnail - ${title}");
+  blogImage.setAttribute("alt", `Thumbnail - ${title.rendered}`);
 
   const highlightBlogpost = document.createElement("div");
   highlightBlogpost.classList.add("highlight__blogpost");
