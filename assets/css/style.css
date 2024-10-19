@@ -162,6 +162,10 @@ section.header__contacts {
 }
 
 aside {
+  /* Buat development biar ngga ngganggu */
+  display: none;
+  /* Nanti jangan lupa di comment / dihapus */
+
   margin-right: 20px;
   position: fixed;
   bottom: 0;
@@ -204,9 +208,9 @@ aside h2 {
   margin-top: 0;
   margin-bottom: 20px;
   border: solid white 2px;
-box-shadow: 0px 0px 86px 30px rgba(0,0,0,0.78);
--webkit-box-shadow: 0px 0px 86px 30px rgba(0,0,0,0.78);
--moz-box-shadow: 0px 0px 86px 30px rgba(0,0,0,0.78);
+  box-shadow: 0px 0px 86px 30px rgba(0, 0, 0, 0.78);
+  -webkit-box-shadow: 0px 0px 86px 30px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 0px 0px 86px 30px rgba(0, 0, 0, 0.78);
 }
 
 .aside__highlights > article > img {
@@ -254,7 +258,8 @@ article a p {
   color: var(--secondary-color);
 }
 
-article a, aside a {
+article a,
+aside a {
   text-decoration: none;
   display: block;
   background-color: var(--secondary-bg-color);
@@ -280,9 +285,83 @@ article a, aside a {
   margin-bottom: 10px;
 }
 
+.section__contact_me h2 {
+  margin-bottom: 30px;
+}
+
+.section__contact_me input,
+.section__contact_me textarea {
+  display: block;
+  width: 100%;
+  color: var(--secondary-color);
+  background-color: var(--secondary-bg-color);
+  border: solid 1px var(--tertiary-color);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.section__contact_me input {
+  height: 38px;
+}
+
+.section__contact_me textarea {
+  resize: none;
+}
+
+.section__contact_me ::placeholder {
+  color: var(--secondary-color);
+  opacity: 0.5; /* Firefox */
+}
+
+.section__contact_me ::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: var(--secondary-color);
+}
+
+.section__contact_me label {
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.section__contact_me .required {
+  color: rgb(231, 84, 84);
+}
+
+.section__contact_me button {
+  background-color: transparent;
+  color: white;
+  font-family: "Inter", sans-serif;
+  border: solid 1px white;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+}
+
 footer p {
   text-align: center;
   font-size: 0.8rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary-bg-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--tertiary-color);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
 }
 
 /* Medium devices (tab, above 768 px) */
@@ -310,7 +389,7 @@ footer p {
   .aside__highlights > article > img {
     width: 25%;
   }
-  
+
   .aside__highlights .highlights__content {
     width: 75%;
   }
@@ -353,7 +432,7 @@ footer p {
   .aside__highlights > article > img {
     width: 100%;
   }
-  
+
   .aside__highlights .highlights__content {
     width: 100%;
   }
