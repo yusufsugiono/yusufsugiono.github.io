@@ -41,6 +41,15 @@ async function fetchBlogData(blogUrl, params) {
   }
 }
 
+function renderSkeletonBlog() {
+  const blogSection = document.querySelector(".section__blogpost");
+
+  // Use innerHTML for faster rendering
+  // Please tell me if u know better approach / best practice about this
+  blogSection.innerHTML =
+    '<h2>BLOG</h2><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy Image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a>';
+}
+
 function renderBlogContent({
   link,
   title,
@@ -72,6 +81,13 @@ function renderBlogContent({
 
 function renderBlog(data) {
   const blogSection = document.querySelector(".section__blogpost");
+
+  const blogSectionHeading = document.createElement("h2");
+  blogSectionHeading.textContent = "BLOG";
+
+  blogSection.innerHTML = "";
+  blogSection.appendChild(blogSectionHeading);
+
   data.forEach((items) => {
     let content = renderBlogContent(items);
     blogSection.appendChild(content);
@@ -80,6 +96,7 @@ function renderBlog(data) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    renderSkeletonBlog();
     const data = await fetchBlogData(blogUrl, params);
     renderBlog(data);
   } catch (error) {

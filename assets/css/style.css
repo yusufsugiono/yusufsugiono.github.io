@@ -292,6 +292,27 @@ aside a {
   margin-bottom: 10px;
 }
 
+.dummy {
+  animation: skeleton-animation 1s infinite ease-in-out;
+}
+
+.highlight__blogpost.skeleton h3 {
+  background-color: var(--tertiary-color);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.skeleton p {
+  background-color: var(--tertiary-color);
+  margin-bottom: 5px;
+  line-height: 90%;
+  width: 100%;
+}
+
+.skeleton p:last-child {
+  width: 60%;
+}
+
 .section__contact_me form {
   margin-top: 30px;
 }
@@ -389,6 +410,8 @@ footer p {
   font-size: 0.8rem;
 }
 
+/* SCROLLBAR */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -407,6 +430,21 @@ footer p {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-color);
+}
+
+/* ANIMATION */
+@keyframes skeleton-animation {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
 }
 
 /* Medium devices (tab, above 768 px) */
