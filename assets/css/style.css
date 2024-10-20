@@ -169,7 +169,7 @@ aside {
   margin-right: 20px;
   position: fixed;
   bottom: 0;
-  z-index: 4;
+  z-index: 9;
   font-size: 0.85em;
   font-family: "Inter", sans-serif;
   font-weight: 300;
@@ -182,7 +182,7 @@ aside .close-btn {
   right: 0;
   cursor: pointer;
   font-size: 1.3em;
-  z-index: 5;
+  z-index: 10;
 }
 
 .highlights__content a {
@@ -240,7 +240,14 @@ aside h2 {
   font-size: 0.8em;
   font-weight: 200;
   text-align: center;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+}
+
+article h2 {
+  background-color: var(--primary-bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 section h3,
@@ -285,8 +292,40 @@ aside a {
   margin-bottom: 10px;
 }
 
-.section__contact_me h2 {
-  margin-bottom: 30px;
+.section__contact_me form {
+  margin-top: 30px;
+}
+
+div[class*="alert"] {
+  opacity: 0;
+  margin: 28px 20px;
+  border: solid 1px white;
+  border-radius: 5px;
+  padding: 10px 30px 10px 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 6;
+  transition: 0.5s;
+}
+
+div[class*="alert"] > .close-btn {
+  display: block;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+div.alert-success {
+  background-color: rgb(26, 62, 41);
+  color: rgb(153, 230, 171);
+  border-color: rgb(37, 90, 50);
+}
+
+div.alert-danger {
+  color: rgb(225, 134, 143);
+  background-color: rgb(67, 12, 17);
+  border-color: rgb(104, 18, 27);
 }
 
 .section__contact_me input,
@@ -401,6 +440,10 @@ footer p {
 
   .highlights__content button {
     align-self: center;
+  }
+
+  div[class*="alert"] {
+    width: auto;
   }
 }
 

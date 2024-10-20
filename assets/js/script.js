@@ -11,6 +11,7 @@ closeBtn.addEventListener("click", () => {
 
 /* ================
 | Fetch Data Blog
+| from segalahal.com
 */
 
 const blogUrl = "https://segalahal.com/wp-json/wp/v2/posts";
@@ -84,4 +85,76 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Error handling in DOM manipulation:", error);
   }
+});
+
+/* ================
+| Sending form data
+| Thanks to: Jamie Wilson & Sandhika Galih
+| https://github.com/jamiewilson/form-to-google-sheets
+| https://www.youtube.com/watch?v=2XosKncBoQ4
+*/
+
+// Build alert
+function buildFormAlert(status) {
+  const contactMeSection = document.querySelector(".section__contact_me");
+  const contactMeHeading = document.querySelector(".section__contact_me>h2");
+
+  const alertElement = document.createElement("div");
+  alertElement.classList.add(
+    status === "success" ? "alert-success" : "alert-danger"
+  );
+
+  const alertText = document.createElement("p");
+  alertText.innerHTML =
+    status === "success"
+      ? "<b>Thank You.</b> Your message has been sent."
+      : "<b>Oops!</b> Your message failed to send. Please try again later.";
+
+  const alertCloseBtn = document.createElement("div");
+  alertCloseBtn.classList.add("close-btn");
+  alertCloseBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  alertCloseBtn.onclick = function () {
+    this.parentElement.style.opacity = 0;
+    setTimeout(() => {
+      this.parentElement.style.display = "none";
+    }, 1000);
+  };
+
+  alertElement.appendChild(alertCloseBtn);
+  alertElement.appendChild(alertText);
+  contactMeSection.insertBefore(alertElement, contactMeHeading.nextSibling);
+  setTimeout(() => {
+    alertElement.style.opacity = 1;
+  }, 100);
+}
+
+function autoCloseAlert() {
+  const alertElement = document.querySelector('div[class*="alert"]');
+  alertElement.style.opacity = 0;
+  setTimeout(() => {
+    alertElement.style.display = "none";
+  }, 1000);
+}
+
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbz8i9-B1AYpThAJXdywXP3JVBtCYwHFJyrqKCkpYZy2hHcljzSPlb8DRaxqJiktNPeSZQ/exec";
+const form = document.forms["contact_me"];
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then(() => {
+      form.reset();
+      buildFormAlert("success");
+    })
+    .catch(() => {
+      return buildFormAlert("error");
+    })
+    .finally(() => {
+      setTimeout(() => {
+        if (document.querySelector('div[class*="alert"]') !== null) {
+          autoCloseAlert();
+        }
+      }, 10000);
+    });
 });
