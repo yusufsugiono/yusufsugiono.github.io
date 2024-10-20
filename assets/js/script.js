@@ -41,15 +41,6 @@ async function fetchBlogData(blogUrl, params) {
   }
 }
 
-function renderSkeletonBlog() {
-  const blogSection = document.querySelector(".section__blogpost");
-
-  // Use innerHTML for faster rendering
-  // Please tell me if u know better approach / best practice about this
-  blogSection.innerHTML =
-    '<h2>BLOG</h2><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy Image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a><a href="#"><img class="dummy" src="https://dummyimage.com/200x135/303030/fff&text=+" alt="Dummy image"><div class="highlight__blogpost skeleton dummy"><h3>&nbsp;</h3><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></a>';
-}
-
 function renderBlogContent({
   link,
   title,
@@ -61,6 +52,7 @@ function renderBlogContent({
   blogElement.setAttribute("target", "_blank");
 
   const blogImage = document.createElement("img");
+  blogImage.setAttribute("loading", "lazy");
   blogImage.setAttribute("src", jetpack_featured_media_url);
   blogImage.setAttribute("alt", `Thumbnail - ${title.rendered}`);
 
@@ -96,7 +88,6 @@ function renderBlog(data) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    renderSkeletonBlog();
     const data = await fetchBlogData(blogUrl, params);
     renderBlog(data);
   } catch (error) {

@@ -292,6 +292,10 @@ aside a {
   margin-bottom: 10px;
 }
 
+img.dummy {
+  width: 100%;
+}
+
 .dummy {
   animation: skeleton-animation 1s infinite ease-in-out;
 }
@@ -564,6 +568,7 @@ footer p {
   .header__nav ul li a {
     text-decoration: none;
     color: var(--secondary-color);
+    transition: 0.2s;
   }
 
   .header__nav ul li a:hover {
