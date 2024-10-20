@@ -517,6 +517,16 @@ footer p {
     list-style-type: square;
   }
 
+  .header__nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
+
+  .header__nav ul li a:hover {
+    color: var(--primary-color);
+    font-weight: bolder;
+  }
+
   section,
   article {
     margin: 34px 0;
