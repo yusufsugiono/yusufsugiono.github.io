@@ -373,9 +373,15 @@ div.alert-danger {
   font-family: "Inter", sans-serif;
   border: solid 1px white;
   border-radius: 5px;
-  padding: 5px;
-  width: 100px;
+  padding: 5px 15px;
+  width: auto;
   cursor: pointer;
+}
+
+.section__contact_me button:disabled {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  cursor: not-allowed;
 }
 
 footer p {

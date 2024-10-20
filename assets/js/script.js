@@ -94,6 +94,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 | https://www.youtube.com/watch?v=2XosKncBoQ4
 */
 
+// Change submit button when sending data
+function sendingData() {
+  const submitBtn = document.querySelector("button");
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Send';
+  submitBtn.setAttribute("disabled", "disabled");
+}
+
+function afterSendingData() {
+  const submitBtn = document.querySelector("button");
+  submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send';
+  submitBtn.removeAttribute("disabled");
+}
+
 // Build alert
 function buildFormAlert(status) {
   const contactMeSection = document.querySelector(".section__contact_me");
@@ -142,6 +155,7 @@ const form = document.forms["contact_me"];
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  sendingData();
   fetch(scriptURL, { method: "POST", body: new FormData(form) })
     .then(() => {
       form.reset();
@@ -151,6 +165,7 @@ form.addEventListener("submit", (e) => {
       return buildFormAlert("error");
     })
     .finally(() => {
+      afterSendingData();
       setTimeout(() => {
         if (document.querySelector('div[class*="alert"]') !== null) {
           autoCloseAlert();
