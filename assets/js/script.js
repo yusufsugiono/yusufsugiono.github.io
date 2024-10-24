@@ -84,6 +84,14 @@ function renderBlog(data) {
     let content = renderBlogContent(items);
     blogSection.appendChild(content);
   });
+
+  const seeMoreBlog = document.createElement("a");
+  seeMoreBlog.setAttribute("href", "https://segalahal.com");
+  seeMoreBlog.setAttribute("target", "_blank");
+  seeMoreBlog.classList.add("view-more");
+  seeMoreBlog.innerHTML = "<p>SEE MORE ON SEGALAHAL.COM</p>";
+
+  blogSection.appendChild(seeMoreBlog);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -101,6 +109,130 @@ document.addEventListener("DOMContentLoaded", async () => {
 | https://github.com/jamiewilson/form-to-google-sheets
 | https://www.youtube.com/watch?v=2XosKncBoQ4
 */
+
+// Validate Input Form
+const whatsappInput = document.querySelector("#whatsapp");
+whatsappInput.addEventListener("keydown", function (event) {
+  // Izinkan tombol-tombol tertentu (Backspace, Delete, Arrow keys, dll.)
+  const allowedKeys = [
+    "Backspace",
+    "Delete",
+    "ArrowLeft",
+    "ArrowRight",
+    "Tab",
+    "Escape",
+    "Enter",
+  ];
+
+  if (allowedKeys.includes(event.key)) {
+    return;
+  }
+
+  // Dapatkan nilai saat ini ditambah karakter yang sedang diketik
+  const currentValue = whatsappInput.value;
+  const newValue = currentValue + event.key;
+
+  // Izinkan hanya angka dan simbol +
+  const isNumber = /^[0-9]$/.test(event.key);
+  const isPlus = event.key === "+";
+
+  // Karakter pertama bisa +, atau harus 0 jika bukan +
+  if (currentValue.length === 0) {
+    if (isPlus || event.key === "0") {
+      return; // Izinkan + atau 0 sebagai karakter pertama
+    } else {
+      event.preventDefault(); // Blokir karakter lain sebagai karakter pertama
+    }
+  } else {
+    // Jika karakter pertama adalah +, izinkan hanya angka
+    if (currentValue[0] === "+") {
+      if (!isNumber) {
+        event.preventDefault(); // Blokir karakter selain angka setelah +
+      }
+    }
+    // Jika karakter pertama adalah 0, izinkan hanya angka
+    else if (currentValue[0] === "0") {
+      if (!isNumber) {
+        event.preventDefault(); // Blokir karakter selain angka
+      }
+    }
+    // Blokir jika memulai dengan angka selain 0 atau +
+    else {
+      event.preventDefault(); // Blokir karakter tidak valid
+    }
+  }
+});
+
+function validateForm() {
+  let isValid = true;
+
+  // Validate Email
+  const emailInput = document.querySelector("#email");
+  const emailError = document.querySelector(".email-error");
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (emailInput.value === "") {
+    emailError.textContent = "Email is required.";
+    emailError.style.visibility = "visible";
+    emailInput.classList.add("input-email-error");
+    isValid = false;
+  } else if (!emailPattern.test(emailInput.value)) {
+    emailError.textContent = "Please enter a valid email address!";
+    emailError.style.visibility = "visible";
+    emailInput.classList.add("input-email-error");
+    isValid = false;
+  } else {
+    emailError.style.visibility = "hidden";
+  }
+
+  // Validate WhatsApp
+  const waInput = document.querySelector("#whatsapp");
+  const waError = document.querySelector(".whatsapp-error");
+  const waPattern = /^(?:\+|0)[0-9]+$/;
+  if (waInput.value !== "" && !waPattern.test(waInput.value)) {
+    waError.textContent =
+      "Please enter a valid phone number! (eg. +6281234567890)";
+    waError.style.visibility = "visible";
+    waInput.classList.add("input-whatsapp-error");
+    isValid = false;
+  } else {
+    waError.style.visibility = "hidden";
+  }
+
+  // Validate Full Name
+  const nameInput = document.querySelector("#sender_name");
+  const nameError = document.querySelector(".sender_name-error");
+  if (nameInput.value === "") {
+    nameError.textContent = "Full Name is required.";
+    nameError.style.visibility = "visible";
+    nameInput.classList.add("input-sender_name-error");
+    isValid = false;
+  } else {
+    nameError.style.visibility = "hidden";
+  }
+
+  // Validate Message
+  const msgInput = document.querySelector("#message");
+  const msgError = document.querySelector(".message-error");
+  if (msgInput.value === "") {
+    msgError.textContent = "Message is required.";
+    msgError.style.visibility = "visible";
+    msgInput.classList.add("input-message-error");
+    isValid = false;
+  } else {
+    msgError.style.visibility = "hidden";
+  }
+
+  return isValid;
+}
+
+// Remove error message when user types
+document.querySelectorAll("input, textarea").forEach((input) => {
+  input.addEventListener("input", function () {
+    const errorElement = document.querySelector("." + this.id + "-error");
+    errorElement.style.visibility = "hidden";
+    this.className = "";
+  });
+});
 
 // Change submit button when sending data
 function sendingData() {
@@ -163,21 +295,24 @@ const form = document.forms["contact_me"];
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  sendingData();
-  fetch(scriptURL, { method: "POST", body: new FormData(form) })
-    .then(() => {
-      form.reset();
-      buildFormAlert("success");
-    })
-    .catch(() => {
-      return buildFormAlert("error");
-    })
-    .finally(() => {
-      afterSendingData();
-      setTimeout(() => {
-        if (document.querySelector('div[class*="alert"]') !== null) {
-          autoCloseAlert();
-        }
-      }, 10000);
-    });
+  const isValid = validateForm();
+  if (isValid) {
+    sendingData();
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then(() => {
+        form.reset();
+        buildFormAlert("success");
+      })
+      .catch(() => {
+        return buildFormAlert("error");
+      })
+      .finally(() => {
+        afterSendingData();
+        setTimeout(() => {
+          if (document.querySelector('div[class*="alert"]') !== null) {
+            autoCloseAlert();
+          }
+        }, 10000);
+      });
+  }
 });

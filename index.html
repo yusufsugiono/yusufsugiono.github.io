@@ -118,6 +118,14 @@
           <h3>sampein</h3>
           <p>💬 Let helps deaf and blind people communicate</p>
         </a>
+
+        <a
+          class="view-more"
+          href="https://github.com/yusufsugiono"
+          target="_blank"
+        >
+          <p>SEE MORE ON GITHUB</p>
+        </a>
       </article>
 
       <article class="section__blogpost" id="section__blogpost">
@@ -191,7 +199,7 @@
 
       <article class="section__contact_me" id="section__contact_me">
         <h2>CONTACT ME</h2>
-        <form action="#" name="contact_me">
+        <form action="#" name="contact_me" novalidate>
           <label for="email">Email <span class="required">*</span></label>
           <input
             type="email"
@@ -199,8 +207,8 @@
             name="email"
             autocomplete="off"
             placeholder="your@email.com"
-            required
           />
+          <div class="form-error email-error">&nbsp;</div>
 
           <label for="whatsapp">WhatsApp</label>
           <input
@@ -211,6 +219,7 @@
             placeholder="+62 8123456789"
             pattern="^(?:\+|0)[0-9]+$"
           />
+          <div class="form-error whatsapp-error">&nbsp;</div>
 
           <label for="sender_name"
             >Full Name <span class="required">*</span></label
@@ -221,16 +230,18 @@
             name="sender_name"
             autocomplete="off"
             placeholder="Your name"
-            required
           />
+          <div class="form-error sender_name-error">&nbsp;</div>
+
           <label for="message">Message <span class="required">*</span></label>
           <textarea
             name="message"
             id="message"
             rows="7"
             placeholder="Type your message here..."
-            required
           ></textarea>
+          <div class="form-error message-error">&nbsp;</div>
+
           <button type="submit">
             <i class="fa-solid fa-paper-plane"></i> Send
           </button>

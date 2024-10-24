@@ -8,6 +8,7 @@
   --primary-color: white;
   --secondary-color: #949495;
   --tertiary-color: #303030;
+  --danger: rgb(231, 84, 84);
 }
 
 /*
@@ -359,7 +360,7 @@ div.alert-danger {
   background-color: var(--secondary-bg-color);
   border: solid 1px var(--tertiary-color);
   border-radius: 5px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   margin-top: 5px;
 }
 
@@ -369,6 +370,18 @@ div.alert-danger {
 
 .section__contact_me textarea {
   resize: none;
+}
+
+.section__contact_me .form-error {
+  font-size: 0.8em;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  color: var(--danger);
+  visibility: hidden;
+}
+
+[class^="input-"][class$="-error"] {
+  border: 1px solid var(--danger) !important;
 }
 
 .section__contact_me ::placeholder {
@@ -387,7 +400,7 @@ div.alert-danger {
 }
 
 .section__contact_me .required {
-  color: rgb(231, 84, 84);
+  color: var(--danger);
 }
 
 .section__contact_me button {
@@ -410,6 +423,14 @@ div.alert-danger {
 footer p {
   text-align: center;
   font-size: 0.8rem;
+}
+
+.view-more {
+  font-family: "Inter", sans-serif;
+  padding: 5px !important;
+  font-size: 0.7em;
+  text-align: center;
+  justify-content: center;
 }
 
 .blink {
