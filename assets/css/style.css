@@ -164,7 +164,7 @@ section.header__contacts {
 
 aside {
   /* Buat development biar ngga ngganggu */
-  display: none;
+  /* display: none; */
   /* Nanti jangan lupa di comment / dihapus */
 
   margin-right: 20px;
