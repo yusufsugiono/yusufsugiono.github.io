@@ -163,9 +163,10 @@ section.header__contacts {
 }
 
 aside {
-  /* Buat development biar ngga ngganggu */
-  /* display: none; */
-  /* Nanti jangan lupa di comment / dihapus */
+  /* Buat development agar tidak mengganggu */
+  /* atau saat tidak ada info yg ingin ditampilkan */
+  /* maka bisa set display: none; aja */
+  display: none;
 
   margin-right: 20px;
   position: fixed;
