@@ -37,6 +37,10 @@ async function fetchBlogData(blogUrl, params) {
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
+    const blogSection = document.getElementById("section__blogpost");
+    const blogNavLink = document.getElementById("link_to_blogpost");
+    blogSection.style.display = "none";
+    blogNavLink.style.display = "none";
     throw error;
   }
 }
