@@ -10,9 +10,11 @@ closeBtn.addEventListener("click", () => {
 });
 
 /* ================
-| Fetch Data Blog
-| from segalahal.com
+| BLOG SUDAH TIDAK AKTIF
+| Fungsi fetch blog di comment dulu
 */
+
+/*
 
 const blogUrl = "https://segalahal.com/wp-json/wp/v2/posts";
 const params = {
@@ -106,6 +108,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error handling in DOM manipulation:", error);
   }
 });
+
+*/
 
 /* ================
 | Sending form data
