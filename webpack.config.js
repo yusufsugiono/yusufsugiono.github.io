@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
@@ -27,7 +28,10 @@ module.exports = (env, argv) => {
         // CSS loader
         {
           test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
+          use: [
+            isProd ? MiniCssExtractPlugin.loader : "style-loader",
+            "css-loader",
+          ],
         },
         // Asset loader (gambar)
         {
@@ -48,6 +52,13 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: "./src/index.html",
       }),
+      ...(isProd
+        ? [
+            new MiniCssExtractPlugin({
+              filename: "[name].[contenthash].css",
+            }),
+          ]
+        : []),
     ],
     devServer: {
       static: "./dist",
