@@ -166,7 +166,7 @@ aside {
   /* Buat development agar tidak mengganggu */
   /* atau saat tidak ada info yg ingin ditampilkan */
   /* maka bisa set display: none; aja */
-  display: block;
+  display: none;
 
   margin-right: 20px;
   position: fixed;
