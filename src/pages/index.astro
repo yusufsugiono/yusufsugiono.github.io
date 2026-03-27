@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+---
+import "../assets/css/style.css";
+---
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,7 +17,6 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
     <title>Yusuf Sugiono</title>
 
     <meta
@@ -27,11 +30,7 @@
       content="https://github.com/yusufsugiono/yusufsugiono.github.io/blob/master/assets/img/yusufsugiono-opengraph-image.jpg?raw=true"
     />
     <meta property="og:url" content="https://yusufsugiono.my.id" />
-    <link
-      rel="icon"
-      type="image/vnd.icon"
-      href="./assets/img/favicon/favicon.ico"
-    />
+    <link rel="icon" type="image/vnd.icon" href="/favicon/favicon.ico" />
     <meta
       property="og:description"
       content="A lifelong learner. Enthusiastic in learning technology, especially on web development, also machine learning and cloud computing."
@@ -72,8 +71,8 @@
       </nav>
       <section class="header__contacts">
         <img
-          src="./assets/img/profile_48x48.jpg"
-          alt="Profile Picture"
+          src="/profile_48x48.jpg"
+          alt="Profile"
           class="header__profile_picture"
         />
         <a
@@ -98,23 +97,22 @@
           />
           <div class="highlights__content">
             <p>
-              <b>RESMI DIBUKA! Pendaftaran Program Beasiswa IDCamp 2025📣</b
-              ><br /><br />
-              IDCamp 2025, program beasiswa coding online terbesar kembali hadir
-              untuk memberikan 100.000 beasiswa belajar di bidang AI TANPA BIAYA
-              untuk seluruh talenta digital Indonesia!
+              <b>RESMI DIBUKA! Pendaftaran Program Beasiswa IDCamp 2025📣</b><br
+              /><br />
+              IDCamp 2025, program beasiswa coding online terbesar kembali hadir untuk
+              memberikan 100.000 beasiswa belajar di bidang AI TANPA BIAYA untuk seluruh
+              talenta digital Indonesia!
               <br /><br />
-              IDCamp hadir kembali dengan 2 kategori belajar baru: AI
-              Development Track & AI Integration Track, dengan 8 pilihan alur
-              belajar. Selain itu, akan ada juga bonus alur belajar Automation
-              dan Cybersecurity lho! 🥳<br /><br />
+              IDCamp hadir kembali dengan 2 kategori belajar baru: AI Development
+              Track & AI Integration Track, dengan 8 pilihan alur belajar. Selain
+              itu, akan ada juga bonus alur belajar Automation dan Cybersecurity lho!
+              🥳<br /><br />
               Tunggu apalagi? Yuk, daftarkan dirimu sekarang juga<br /><br />
             </p>
             <a
               class="blink"
               href="https://idcamp.ioh.co.id/login?referrer_id=579332"
-              target="_blank"
-              >DAFTAR SEKARANG</a
+              target="_blank">DAFTAR SEKARANG</a
             >
           </div>
         </article>
@@ -245,7 +243,7 @@
             name="whatsapp"
             autocomplete="off"
             placeholder="+62 8123456789"
-            pattern="^(?:\+|0)[0-9]+$"
+            pattern="^(?:\\+|0)[0-9]+$"
           />
           <div class="form-error whatsapp-error">&nbsp;</div>
 
@@ -266,8 +264,7 @@
             name="message"
             id="message"
             rows="7"
-            placeholder="Type your message here..."
-          ></textarea>
+            placeholder="Type your message here..."></textarea>
           <div class="form-error message-error">&nbsp;</div>
 
           <button type="submit">
@@ -279,8 +276,8 @@
     <footer>
       <p>
         Built with
-        <i style="color: rgb(189, 74, 74)" class="fa-solid fa-heart"></i> by
-        Yusuf Sugiono. <br />
+        <i style="color: rgb(189, 74, 74)" class="fa-solid fa-heart"></i> by Yusuf
+        Sugiono. <br />
         Design inspired by
         <a href="https://dribbble.com/NicolasMzrd" target="_blank"
           >Nicolas Meuzard</a
@@ -294,8 +291,257 @@
     <script
       src="https://kit.fontawesome.com/28a0cf18f1.js"
       crossorigin="anonymous"
-      defer
-    ></script>
-    <!-- <script src="assets/js/script.js" defer></script> -->
+      defer></script>
+    <script>
+      // Helper selector biar reusable & typed
+      function qs<T extends HTMLElement>(selector: string): T | null {
+        return document.querySelector<T>(selector);
+      }
+
+      // =================
+      // Close Pop Up
+      // =================
+      const closeBtn = qs<HTMLButtonElement>(".close-btn");
+      const asideElement = qs<HTMLElement>("aside");
+
+      closeBtn?.addEventListener("click", () => {
+        asideElement?.style.setProperty("display", "none");
+      });
+
+      // =================
+      // Validate WhatsApp Input
+      // =================
+      const whatsappInput = qs<HTMLInputElement>("#whatsapp");
+
+      whatsappInput?.addEventListener("keydown", (event: KeyboardEvent) => {
+        const allowedKeys = [
+          "Backspace",
+          "Delete",
+          "ArrowLeft",
+          "ArrowRight",
+          "Tab",
+          "Escape",
+          "Enter",
+        ];
+
+        if (allowedKeys.includes(event.key)) return;
+
+        const currentValue = whatsappInput.value;
+
+        const isNumber = /^[0-9]$/.test(event.key);
+        const isPlus = event.key === "+";
+
+        if (currentValue.length === 0) {
+          if (isPlus || event.key === "0") return;
+          event.preventDefault();
+          return;
+        }
+
+        if (currentValue[0] === "+") {
+          if (!isNumber) event.preventDefault();
+        } else if (currentValue[0] === "0") {
+          if (!isNumber) event.preventDefault();
+        } else {
+          event.preventDefault();
+        }
+      });
+
+      // =================
+      // Form Validation
+      // =================
+      function validateForm(): boolean {
+        let isValid = true;
+
+        const emailInput = qs<HTMLInputElement>("#email");
+        const emailError = qs<HTMLElement>(".email-error");
+
+        const waInput = qs<HTMLInputElement>("#whatsapp");
+        const waError = qs<HTMLElement>(".whatsapp-error");
+
+        const nameInput = qs<HTMLInputElement>("#sender_name");
+        const nameError = qs<HTMLElement>(".sender_name-error");
+
+        const msgInput = qs<HTMLTextAreaElement>("#message");
+        const msgError = qs<HTMLElement>(".message-error");
+
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (emailInput && emailError) {
+          if (!emailInput.value) {
+            emailError.textContent = "Email is required.";
+            emailError.style.visibility = "visible";
+            emailInput.classList.add("input-email-error");
+            isValid = false;
+          } else if (!emailPattern.test(emailInput.value)) {
+            emailError.textContent = "Please enter a valid email address!";
+            emailError.style.visibility = "visible";
+            emailInput.classList.add("input-email-error");
+            isValid = false;
+          } else {
+            emailError.style.visibility = "hidden";
+          }
+        }
+
+        const waPattern = /^(?:\+|0)[0-9]+$/;
+
+        if (waInput && waError) {
+          if (waInput.value && !waPattern.test(waInput.value)) {
+            waError.textContent =
+              "Please enter a valid phone number! (eg. +6281234567890)";
+            waError.style.visibility = "visible";
+            waInput.classList.add("input-whatsapp-error");
+            isValid = false;
+          } else {
+            waError.style.visibility = "hidden";
+          }
+        }
+
+        if (nameInput && nameError) {
+          if (!nameInput.value) {
+            nameError.textContent = "Full Name is required.";
+            nameError.style.visibility = "visible";
+            nameInput.classList.add("input-sender_name-error");
+            isValid = false;
+          } else {
+            nameError.style.visibility = "hidden";
+          }
+        }
+
+        if (msgInput && msgError) {
+          if (!msgInput.value) {
+            msgError.textContent = "Message is required.";
+            msgError.style.visibility = "visible";
+            msgInput.classList.add("input-message-error");
+            isValid = false;
+          } else {
+            msgError.style.visibility = "hidden";
+          }
+        }
+
+        return isValid;
+      }
+
+      // =================
+      // Remove error on input
+      // =================
+      document
+        .querySelectorAll<
+          HTMLInputElement | HTMLTextAreaElement
+        >("input, textarea")
+        .forEach((input) => {
+          input.addEventListener("input", () => {
+            const errorElement = qs<HTMLElement>(`.${input.id}-error`);
+            errorElement?.style.setProperty("visibility", "hidden");
+            input.className = "";
+          });
+        });
+
+      // =================
+      // Button state
+      // =================
+      function getSubmitBtn(): HTMLButtonElement | null {
+        return document.querySelector("button");
+      }
+
+      function sendingData() {
+        const btn = getSubmitBtn();
+        if (!btn) return;
+
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Send';
+        btn.disabled = true;
+      }
+
+      function afterSendingData() {
+        const btn = getSubmitBtn();
+        if (!btn) return;
+
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send';
+        btn.disabled = false;
+      }
+
+      // =================
+      // Alert
+      // =================
+      function buildFormAlert(status: "success" | "error") {
+        const section = qs<HTMLElement>(".section__contact_me");
+        const heading = qs<HTMLElement>(".section__contact_me > h2");
+
+        if (!section || !heading) return;
+
+        const alert = document.createElement("div");
+        alert.classList.add(
+          status === "success" ? "alert-success" : "alert-danger",
+        );
+
+        const text = document.createElement("p");
+        text.innerHTML =
+          status === "success"
+            ? "<b>Thank You.</b> Your message has been sent."
+            : "<b>Oops!</b> Your message failed to send.";
+
+        const close = document.createElement("div");
+        close.classList.add("close-btn");
+        close.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
+        close.onclick = () => {
+          alert.style.opacity = "0";
+          setTimeout(() => (alert.style.display = "none"), 1000);
+        };
+
+        alert.append(close, text);
+        section.insertBefore(alert, heading.nextSibling);
+
+        setTimeout(() => (alert.style.opacity = "1"), 100);
+      }
+
+      function autoCloseAlert() {
+        const alert = document.querySelector<HTMLElement>(
+          'div[class*="alert"]',
+        );
+        if (!alert) return;
+
+        alert.style.opacity = "0";
+        setTimeout(() => (alert.style.display = "none"), 1000);
+      }
+
+      // =================
+      // Submit Form
+      // =================
+      const form = document.forms.namedItem(
+        "contact_me",
+      ) as HTMLFormElement | null;
+
+      form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        sendingData();
+
+        fetch(
+          "https://script.google.com/macros/s/AKfycbz8i9-B1AYpThAJXdywXP3JVBtCYwHFJyrqKCkpYZy2hHcljzSPlb8DRaxqJiktNPeSZQ/exec",
+          {
+            method: "POST",
+            body: new FormData(form),
+          },
+        )
+          .then(() => {
+            form.reset();
+            buildFormAlert("success");
+          })
+          .catch(() => {
+            buildFormAlert("error");
+          })
+          .finally(() => {
+            afterSendingData();
+
+            setTimeout(() => {
+              if (document.querySelector('div[class*="alert"]')) {
+                autoCloseAlert();
+              }
+            }, 10000);
+          });
+      });
+    </script>
   </body>
 </html>
