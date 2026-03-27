@@ -1,0 +1,20 @@
+---
+import PortfolioItem from "./PortfolioItem.astro";
+import { portfolioSetupData } from "../utils/data.js";
+const { title, data, seeMore } = portfolioSetupData;
+---
+
+<article class="section__portfolio" id="section__portfolio">
+  <h2>{title}</h2>
+  {
+    data.map((item) => {
+      const { title, description, link } = item;
+      return (
+        <PortfolioItem title={title} description={description} link={link} />
+      );
+    })
+  }
+  <a class="view-more" href={seeMore.link} target="_blank">
+    <p>{seeMore.title}</p>
+  </a>
+</article>
