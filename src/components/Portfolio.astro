@@ -1,11 +1,13 @@
 ---
 import PortfolioItem from "./PortfolioItem.astro";
+import ArticleContainer from "./ArticleContainer.astro";
+import ButtonViewMore from "./ButtonViewMore.astro";
+
 import { portfolioSetupData } from "../utils/data.js";
 const { title, data, seeMore } = portfolioSetupData;
 ---
 
-<article class="section__portfolio" id="section__portfolio">
-  <h2>{title}</h2>
+<ArticleContainer className="section__portfolio" id="section__portfolio" title={title}>
   {
     data.map((item) => {
       const { title, description, link } = item;
@@ -14,7 +16,6 @@ const { title, data, seeMore } = portfolioSetupData;
       );
     })
   }
-  <a class="view-more" href={seeMore.link} target="_blank">
-    <p>{seeMore.title}</p>
-  </a>
-</article>
+  <ButtonViewMore text={seeMore.title} className="view-more" href={seeMore.link} />
+</ArticleContainer>
+
