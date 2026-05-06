@@ -1,0 +1,24 @@
+---
+import { highlightedContent } from '../utils/data.js';
+const { banner, show, altText, body, targetLink, buttonText } = highlightedContent;
+const asideClass = show ? "aside__highlights" : "aside__highlights hide";
+---
+<aside class={asideClass}>
+  <div class="close-btn">
+    <i class="fa-regular fa-rectangle-xmark"></i>
+  </div>
+  <article>
+    <img
+      src={banner}
+      alt={altText}
+    />
+    <div class="highlights__content">
+      <p set:html={body}></p>
+      <a
+        class="blink"
+        href={targetLink}
+        target="_blank">{buttonText}</a
+      >
+    </div>
+  </article>
+</aside>
