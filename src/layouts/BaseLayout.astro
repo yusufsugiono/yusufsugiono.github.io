@@ -9,6 +9,7 @@ const {
 	description = "A lifelong learner. Enthusiastic in learning technology, especially on web development, also machine learning and cloud computing.",
 } = Astro.props;
 
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../assets/css/style.css";
 ---
 
@@ -52,10 +53,5 @@ import "../assets/css/style.css";
 	</head>
 	<body>
 		<slot />
-		<!-- FontAwesome -->
-		<script
-			src="https://kit.fontawesome.com/28a0cf18f1.js"
-			crossorigin="anonymous"
-			defer></script>
 	</body>
 </html>
