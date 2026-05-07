@@ -1,0 +1,283 @@
+---
+---
+<article class="section__contact_me" id="section__contact_me">
+    <h2>CONTACT ME</h2>
+    <form action="#" name="contact_me" novalidate>
+        <label for="email">Email <span class="required">*</span></label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="off"
+            placeholder="your@email.com"
+        />
+        <div class="form-error email-error">&nbsp;</div>
+
+        <label for="whatsapp">WhatsApp</label>
+        <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            autocomplete="off"
+            placeholder="+62 8123456789"
+            pattern="^(?:\\+|0)[0-9]+$"
+        />
+        <div class="form-error whatsapp-error">&nbsp;</div>
+
+        <label for="sender_name">Full Name <span class="required">*</span></label>
+        <input
+            type="text"
+            id="sender_name"
+            name="sender_name"
+            autocomplete="off"
+            placeholder="Your name"
+        />
+        <div class="form-error sender_name-error">&nbsp;</div>
+
+        <label for="message">Message <span class="required">*</span></label>
+        <textarea
+            name="message"
+            id="message"
+            rows="7"
+            placeholder="Type your message here..."></textarea>
+        <div class="form-error message-error">&nbsp;</div>
+
+        <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i> Send
+        </button>
+    </form>
+</article>
+
+<script>
+    // Helper selector biar reusable & typed
+    function qs<T extends HTMLElement>(selector: string): T | null {
+        return document.querySelector<T>(selector);
+    }
+
+    // =================
+    // Validate WhatsApp Input
+    // =================
+    const whatsappInput = qs<HTMLInputElement>("#whatsapp");
+
+    whatsappInput?.addEventListener("keydown", (event: KeyboardEvent) => {
+        const allowedKeys = [
+            "Backspace",
+            "Delete",
+            "ArrowLeft",
+            "ArrowRight",
+            "Tab",
+            "Escape",
+            "Enter",
+        ];
+
+        if (allowedKeys.includes(event.key)) return;
+
+        const currentValue = whatsappInput.value;
+
+        const isNumber = /^[0-9]$/.test(event.key);
+        const isPlus = event.key === "+";
+
+        if (currentValue.length === 0) {
+            if (isPlus || event.key === "0") return;
+            event.preventDefault();
+            return;
+        }
+
+        if (currentValue[0] === "+") {
+            if (!isNumber) event.preventDefault();
+        } else if (currentValue[0] === "0") {
+            if (!isNumber) event.preventDefault();
+        } else {
+            event.preventDefault();
+        }
+    });
+
+    // =================
+    // Form Validation
+    // =================
+    function validateForm(): boolean {
+        let isValid = true;
+
+        const emailInput = qs<HTMLInputElement>("#email");
+        const emailError = qs<HTMLElement>(".email-error");
+
+        const waInput = qs<HTMLInputElement>("#whatsapp");
+        const waError = qs<HTMLElement>(".whatsapp-error");
+
+        const nameInput = qs<HTMLInputElement>("#sender_name");
+        const nameError = qs<HTMLElement>(".sender_name-error");
+
+        const msgInput = qs<HTMLTextAreaElement>("#message");
+        const msgError = qs<HTMLElement>(".message-error");
+
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (emailInput && emailError) {
+            if (!emailInput.value) {
+                emailError.textContent = "Email is required.";
+                emailError.style.visibility = "visible";
+                emailInput.classList.add("input-email-error");
+                isValid = false;
+            } else if (!emailPattern.test(emailInput.value)) {
+                emailError.textContent = "Please enter a valid email address!";
+                emailError.style.visibility = "visible";
+                emailInput.classList.add("input-email-error");
+                isValid = false;
+            } else {
+                emailError.style.visibility = "hidden";
+            }
+        }
+
+        const waPattern = /^(?:\+|0)[0-9]+$/;
+
+        if (waInput && waError) {
+            if (waInput.value && !waPattern.test(waInput.value)) {
+                waError.textContent =
+                    "Please enter a valid phone number! (eg. +6281234567890)";
+                waError.style.visibility = "visible";
+                waInput.classList.add("input-whatsapp-error");
+                isValid = false;
+            } else {
+                waError.style.visibility = "hidden";
+            }
+        }
+
+        if (nameInput && nameError) {
+            if (!nameInput.value) {
+                nameError.textContent = "Full Name is required.";
+                nameError.style.visibility = "visible";
+                nameInput.classList.add("input-sender_name-error");
+                isValid = false;
+            } else {
+                nameError.style.visibility = "hidden";
+            }
+        }
+
+        if (msgInput && msgError) {
+            if (!msgInput.value) {
+                msgError.textContent = "Message is required.";
+                msgError.style.visibility = "visible";
+                msgInput.classList.add("input-message-error");
+                isValid = false;
+            } else {
+                msgError.style.visibility = "hidden";
+            }
+        }
+
+        return isValid;
+    }
+
+    // =================
+    // Remove error on input
+    // =================
+    document
+        .querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("input, textarea")
+        .forEach((input) => {
+            input.addEventListener("input", () => {
+                const errorElement = qs<HTMLElement>(`.${input.id}-error`);
+                errorElement?.style.setProperty("visibility", "hidden");
+                input.className = "";
+            });
+        });
+
+    // =================
+    // Button state
+    // =================
+    function getSubmitBtn(): HTMLButtonElement | null {
+        return document.querySelector(".section__contact_me button[type='submit']");
+    }
+
+    function sendingData() {
+        const btn = getSubmitBtn();
+        if (!btn) return;
+
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Send';
+        btn.disabled = true;
+    }
+
+    function afterSendingData() {
+        const btn = getSubmitBtn();
+        if (!btn) return;
+
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send';
+        btn.disabled = false;
+    }
+
+    // =================
+    // Alert
+    // =================
+    function buildFormAlert(status: "success" | "error") {
+        const section = qs<HTMLElement>(".section__contact_me");
+        const heading = qs<HTMLElement>(".section__contact_me > h2");
+
+        if (!section || !heading) return;
+
+        const alert = document.createElement("div");
+        alert.classList.add(status === "success" ? "alert-success" : "alert-danger");
+
+        const text = document.createElement("p");
+        text.innerHTML =
+            status === "success"
+                ? "<b>Thank You.</b> Your message has been sent."
+                : "<b>Oops!</b> Your message failed to send.";
+
+        const close = document.createElement("div");
+        close.classList.add("close-btn");
+        close.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
+        close.onclick = () => {
+            alert.style.opacity = "0";
+            setTimeout(() => (alert.style.display = "none"), 1000);
+        };
+
+        alert.append(close, text);
+        section.insertBefore(alert, heading.nextSibling);
+
+        setTimeout(() => (alert.style.opacity = "1"), 100);
+    }
+
+    function autoCloseAlert() {
+        const alert = document.querySelector<HTMLElement>('div[class*="alert"]');
+        if (!alert) return;
+
+        alert.style.opacity = "0";
+        setTimeout(() => (alert.style.display = "none"), 1000);
+    }
+
+    // =================
+    // Submit Form
+    // =================
+    const form = document.forms.namedItem("contact_me") as HTMLFormElement | null;
+
+    form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        sendingData();
+
+        fetch(
+            "https://script.google.com/macros/s/AKfycbz8i9-B1AYpThAJXdywXP3JVBtCYwHFJyrqKCkpYZy2hHcljzSPlb8DRaxqJiktNPeSZQ/exec",
+            {
+                method: "POST",
+                body: new FormData(form),
+            }
+        )
+            .then(() => {
+                form.reset();
+                buildFormAlert("success");
+            })
+            .catch(() => {
+                buildFormAlert("error");
+            })
+            .finally(() => {
+                afterSendingData();
+
+                setTimeout(() => {
+                    if (document.querySelector('div[class*="alert"]')) {
+                        autoCloseAlert();
+                    }
+                }, 10000);
+            });
+    });
+</script>

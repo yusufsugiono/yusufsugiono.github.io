@@ -17,8 +17,16 @@ const asideClass = show ? "aside__highlights" : "aside__highlights hide";
       <a
         class="blink"
         href={targetLink}
-        target="_blank">{buttonText}</a
-      >
+        target="_blank">{buttonText}</a>
     </div>
   </article>
 </aside>
+
+<script>
+  const closeBtn = document.querySelector(".aside__highlights .close-btn");
+  const asideElement = document.querySelector(".aside__highlights");
+
+  closeBtn?.addEventListener("click", () => {
+    (asideElement as HTMLElement)?.style.setProperty("display", "none");
+  });
+</script>
