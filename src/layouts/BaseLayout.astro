@@ -2,12 +2,20 @@
 interface Props {
 	title?: string;
 	description?: string;
+	bodyClass?: string;
+	image?: string;
 }
+
+const ogImageDefault = "https://github.com/yusufsugiono/yusufsugiono.github.io/blob/master/public/yusufsugiono-opengraph-image.jpg?raw=true";
 
 const {
 	title = "Yusuf Sugiono",
 	description = "A lifelong learner. Enthusiastic in learning technology, especially on web development, also machine learning and cloud computing.",
+	bodyClass = "",
+	image = ogImageDefault,
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../assets/css/style.css";
@@ -29,29 +37,27 @@ import "../assets/css/style.css";
 			rel="stylesheet"
 		/>
 		<title>{title}</title>
+		<link rel="canonical" href={canonicalURL} />
 
 		<meta name="description" content={description} />
 		<meta property="og:title" content={title} />
 		<meta property="og:type" content="website" />
-		<meta
-			property="og:image"
-			content="https://github.com/yusufsugiono/yusufsugiono.github.io/blob/master/public/yusufsugiono-opengraph-image.jpg?raw=true"
-		/>
-		<meta property="og:url" content="https://yusufsugiono.my.id" />
-		<link rel="icon" type="image/vnd.icon" href="/favicon/favicon.ico" />
+		<meta property="og:image" content={image} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:locale" content="id_ID" />
+		<meta property="og:site_name" content="Yusuf Sugiono" />
+		<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
 		<meta property="og:description" content={description} />
 
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta property="twitter:domain" content="yusufsugiono.github.io" />
-		<meta property="twitter:url" content="https://yusufsugiono.my.id" />
+		<meta property="twitter:domain" content="yusufsugiono.my.id" />
+		<meta property="twitter:url" content={canonicalURL} />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta
-			name="twitter:image"
-			content="https://github.com/yusufsugiono/yusufsugiono.github.io/blob/master/public/yusufsugiono-opengraph-image.jpg?raw=true"
-		/>
+		<meta name="twitter:image" content={image} />
+		<meta name="twitter:site" content="@ysf_sugiono" />
 	</head>
-	<body>
+	<body class={bodyClass}>
 		<slot />
 	</body>
 </html>
