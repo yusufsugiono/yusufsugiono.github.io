@@ -11,6 +11,7 @@ const blog = defineCollection({
     imageAlt: z.string().optional().default('Featured image'),
     category: z.string().default('Umum'),
     draft: z.boolean().optional().default(false),
+    tags: z.array(z.string()).optional().default([]),
   }),
 });
 

@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, image, imageAlt } = post.data;
+const { title, description, pubDate, image, imageAlt, tags } = post.data;
 
 // Render konten Markdown menjadi HTML component
 const { Content } = await render(post);
@@ -63,7 +63,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('id-ID', {
 });
 ---
 
-<BaseLayout title={`${title} | Yusuf Sugiono`} description={description} image={image} bodyClass="full-width">
+<BaseLayout title={`${title} | Yusuf Sugiono`} description={description} image={image} tags={tags} pubDate={pubDate.toISOString()} bodyClass="full-width">
   <main>
     <nav class="blog-top-nav">
       <a href="/" class="brand-name">Yusuf Sugiono</a>

@@ -4,6 +4,8 @@ interface Props {
 	description?: string;
 	bodyClass?: string;
 	image?: string;
+	tags?: string[];
+	pubDate?: string;
 }
 
 const ogImageDefault = "https://github.com/yusufsugiono/yusufsugiono.github.io/blob/master/public/yusufsugiono-opengraph-image.jpg?raw=true";
@@ -13,7 +15,11 @@ const {
 	description = "A lifelong learner. Enthusiastic in learning technology, especially on web development, also machine learning and cloud computing.",
 	bodyClass = "",
 	image = ogImageDefault,
+	tags = [],
+	pubDate = "",
 } = Astro.props;
+
+const keywords = tags.join(', ');
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -40,6 +46,7 @@ import "../assets/css/style.css";
 		<link rel="canonical" href={canonicalURL} />
 
 		<meta name="description" content={description} />
+		{keywords && <meta name="keywords" content={keywords} />}
 		<meta property="og:title" content={title} />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content={image} />
@@ -56,6 +63,24 @@ import "../assets/css/style.css";
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={image} />
 		<meta name="twitter:site" content="@ysf_sugiono" />
+
+		{pubDate && (
+			<script type="application/ld+json" set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Article",
+				headline: title,
+				description: description,
+				datePublished: pubDate,
+				keywords: keywords,
+				image: image,
+				url: canonicalURL,
+				author: {
+					"@type": "Person",
+					name: "Yusuf Sugiono",
+					url: "https://yusufsugiono.my.id",
+				},
+			})} />
+		)}
 	</head>
 	<body class={bodyClass}>
 		<slot />
