@@ -96,7 +96,7 @@ async function main() {
 title: "${title}"
 description: "${description}"
 pubDate: "${pubDate}"
-image: "/hero.jpg"
+image: "/images/blog/featured-image.jpg"
 imageAlt: "Featured image for ${title}"
 category: "${category}"
 draft: ${draft}
