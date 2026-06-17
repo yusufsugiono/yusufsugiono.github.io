@@ -650,7 +650,8 @@ footer p {
   width: 100%;
 }
 
-.blog-main-list, .blog-main-content {
+.blog-main-list,
+.blog-main-content {
   width: 100%;
 }
 
@@ -857,15 +858,51 @@ footer p {
   font-size: 1.6rem;
   margin-top: 30px;
   margin-bottom: 15px;
+  text-align: left;
+  font-weight: 700;
 }
 
 .blog-content h3 {
   font-size: 1.3rem;
   margin-top: 25px;
   margin-bottom: 10px;
+  text-align: left;
+  font-weight: 700;
 }
 
-.blog-content ul, .blog-content ol {
+.blog-content h4 {
+  font-size: 1.15rem;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.blog-content h5,
+.blog-content h6 {
+  font-size: 1.05rem;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.blog-content a {
+  display: inline-block;
+  color: var(--danger);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  transition: color 0.2s ease;
+  margin: 0;
+}
+
+.blog-content a:hover {
+  color: var(--primary-color);
+}
+
+.blog-content ul,
+.blog-content ol {
   margin-bottom: 20px;
   padding-left: 20px;
 }
@@ -878,6 +915,50 @@ footer p {
   color: var(--primary-color);
 }
 
+.blog-content blockquote {
+  border-left: 4px solid var(--danger);
+  padding-left: 16px;
+  margin: 20px 0;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+.blog-content code {
+  background-color: var(--secondary-bg-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+
+.blog-content pre {
+  background-color: var(--secondary-bg-color);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.blog-content pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.blog-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 20px auto;
+  display: block;
+}
+
+.blog-content hr {
+  border: none;
+  border-top: 1px solid var(--tertiary-color);
+  margin: 30px 0;
+}
+
 /* ==========================================================================
    RESPONSIVE STYLING (Layar Tablet & Desktop)
    ========================================================================== */
@@ -887,13 +968,13 @@ footer p {
   .blog-post-card .card-link {
     flex-direction: row;
   }
-  
+
   .blog-post-card .card-image {
     width: 30%;
     height: auto;
     min-height: 180px;
   }
-  
+
   .blog-post-card .card-content {
     width: 70%;
   }
@@ -904,11 +985,12 @@ footer p {
   .blog-layout {
     flex-direction: row;
   }
-  
-  .blog-main-list, .blog-main-content {
+
+  .blog-main-list,
+  .blog-main-content {
     width: 70%;
   }
-  
+
   .blog-sidebar {
     width: 30%;
     position: sticky;
@@ -922,7 +1004,8 @@ footer p {
    ========================================================================== */
 
 body.full-width {
-  display: block; /* Overrides default body flex */
+  display: block;
+  /* Overrides default body flex */
   padding: 40px 20px;
 }
 
@@ -968,7 +1051,8 @@ body.full-width footer {
 }
 
 .blog-top-nav ul li {
-  list-style-type: none !important; /* Overrides default square list style */
+  list-style-type: none !important;
+  /* Overrides default square list style */
 }
 
 .blog-top-nav ul a {
