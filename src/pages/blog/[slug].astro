@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer.astro';
+import Giscus from '../../components/Giscus.astro';
 
 // 1. Definisikan static paths untuk generator build statis Astro
 export async function getStaticPaths() {
@@ -96,6 +97,8 @@ const formattedDate = new Date(pubDate).toLocaleDateString('id-ID', {
           <div class="back-to-blog">
             <a href="/blog"><i class="fa-solid fa-arrow-left"></i> Back to Blogs</a>
           </div>
+
+          <Giscus />
         </div>
 
         <!-- Kolom Kanan: Sidebar Widget -->
