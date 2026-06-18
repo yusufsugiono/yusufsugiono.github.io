@@ -26,6 +26,7 @@ async function getAnswers() {
     { key: 'description', prompt: 'Description: ' },
     { key: 'category', prompt: 'Category (default: Umum): ', default: 'Umum' },
     { key: 'draft', prompt: 'Draft? (Y/n): ', default: 'Y' },
+    { key: 'tags', prompt: 'Tags (comma-separated): ' },
   ];
 
   if (input.isTTY) {
@@ -74,6 +75,9 @@ async function main() {
   const description = answers.description;
   const category = answers.category;
   const draft = answers.draft.toLowerCase() !== 'n';
+  const tags = answers.tags
+    ? answers.tags.split(',').map((t) => t.trim()).filter(Boolean)
+    : [];
 
   const slug = toSlug(title);
   const pubDate = todayISO();
@@ -92,6 +96,10 @@ async function main() {
     }
   }
 
+  const tagsYaml = tags.length
+    ? `tags: [${tags.map((t) => `"${t}"`).join(', ')}]`
+    : 'tags: []';
+
   const frontmatter = `---
 title: "${title}"
 description: "${description}"
@@ -100,6 +108,7 @@ image: "/images/blog/featured-image.jpg"
 imageAlt: "Featured image for ${title}"
 category: "${category}"
 draft: ${draft}
+${tagsYaml}
 ---
 
 Tulis konten blog di sini...
