@@ -2,7 +2,7 @@
 title: "Selamat Datang dan Salam Kenal — Kembali Menulis Blog"
 description: "Setelah sekian lama vakum, saya kembali menulis blog. Izinkan saya mengucapkan selamat datang dan salam perkenalan untuk kalian semua."
 pubDate: "2026-06-17"
-image: "/images/blog/selamat_datang_dan_salam_kenal.jpg"
+image: "/images/blog/20260713_selamat-datang-dan-salam-kenal.jpg"
 imageAlt: "Ilustrasi pantai dengan pasir yang tersapu ombak, sebagai simbol lembaran blog yang baru. Foto oleh Sudo di Pixabay"
 category: "Umum"
 draft: false
@@ -24,7 +24,7 @@ Mari kita awali dengan perkenalan. Saya [Yusuf Sugiono](https://www.linkedin.com
 
 ## Perjalanan Menulis Blog
 
-Sebenarnya, sudah cukup lama saya tidak menulis blog. Terakhir kali saya menulis adalah sekitar 1-2 tahun lalu di blog bernama segalahal[dot]com — sebuah blog yang dikelola bersama teman saya, [Mohamad Zaelani](https://www.linkedin.com/in/mohamadzaelani/). Sayangnya, sewa domain tersebut tidak diperpanjang dan kini domainnya diambil alih untuk website judi online. Sungguh disayangkan.
+Sebenarnya, sudah cukup lama saya tidak menulis blog. Terakhir kali saya menulis adalah sekitar 1-2 tahun lalu di blog bernama segalahal[dot]com — sebuah blog yang dikelola bersama teman saya, [Mohamad Zaelani](https://www.linkedin.com/in/mohamadzaelani/). Sayangnya, sewa domain tersebut tidak diperpanjang dan kini domainnya diambil alih oleh orang lain. Sungguh disayangkan.
 
 Melalui tulisan ini, saya ingin meluruskan bahwa saya maupun Mohamad Zaelani sudah tidak memiliki hubungan apa pun dengan website tersebut, dan tidak terafiliasi dengan aktifitas di website tersebut.
 
