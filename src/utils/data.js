@@ -1,11 +1,13 @@
 export const highlightedContent = {
-  show: false,
-  banner: "",
-  altText: "Lorem ipsum dolor sit amet",
-  body: `<b></b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod, sapiente!<br /><br
+  show: true,
+  banner: "https://services.google.com/fh/files/misc/arcade-july-headermobile.png",
+  altText: "Google Skills Arcade 2026",
+  body: `<b>🚀 Mulai Petualangan Belajarmu di Google Skills Arcade Fasilitator 2026!</b><br><br>
+  Melalui Google Skills Arcade Fasilitator 2026, kamu bisa belajar Cloud Computing, Artificial Intelligence, Machine Learning, sampai Data Engineering  dengan konsep gamifikasi yang seru, bukan sekadar baca modul ngebosenin. Dan yang paling penting: 100% GRATIS buat semua WNI!<br><br>
+  Selain mendapatkan materi terstruktur, kamu juga akan dapat badge keahlian yang bisa kamu pamerin di LinkedIn. Selain itu kamu juga akan mendapat poin yang bisa ditukar dengan merchandise dari Google Cloud!<br /><br
         />`,
-  targetLink: "",
-  buttonText: "Lorem ipsum",
+  targetLink: "https://s.id/GoogleArcade2026",
+  buttonText: "DAFTAR SEKARANG",
 };
 
 export const portfolioSetupData = {
