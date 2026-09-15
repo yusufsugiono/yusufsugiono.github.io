@@ -1,5 +1,5 @@
 export const highlightedContent = {
-  show: true,
+  show: false,
   banner: "https://services.google.com/fh/files/misc/arcade-july-headermobile.png",
   altText: "Google Skills Arcade 2026",
   body: `<b>🚀 Mulai Petualangan Belajarmu di Google Skills Arcade Fasilitator 2026!</b><br><br>
