@@ -21,7 +21,8 @@ const {
 
 const keywords = tags.join(', ');
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonicalURL = new URL(pathname, Astro.site);
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../assets/css/style.css";
